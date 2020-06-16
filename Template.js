@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const FiltersScreen = props => {
+const CategoriesScreen = props => {
     return (
         <View style={styles.screen}>
-            <Text>The Filters Screen!</Text>
+            <Text></Text>
         </View>
     );
 };
@@ -17,4 +17,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default FiltersScreen;
+export default CategoriesScreen;
