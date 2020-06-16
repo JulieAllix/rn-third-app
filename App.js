@@ -3,6 +3,8 @@ import { Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 
+import MealsNavigator from './navigation/MealsNavigator';
+
 const fetchFonts = () => {
   Font.loadAsync({
     'merriweather': require('./assets/fonts/Merriweather-Regular.ttf'),
@@ -23,9 +25,7 @@ export default function App() {
   };
 
   return (
-    <View>
-      <Text>Let's go for the third app !</Text>
-    </View>
+    <MealsNavigator />
   );
 }
 
