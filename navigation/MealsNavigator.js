@@ -9,13 +9,15 @@ import Colors from '../constants/Colors'
 
 const MealsNavigator = createStackNavigator(
     {
-    Categories: {
-        screen: CategoriesScreen
-    },
-    CategoryMeals: {
-        screen: CategoryMealsScreen
-    },
-    MealDetail: MealDetailScreen
+        Categories: {
+            screen: CategoriesScreen
+        },
+        CategoryMeals: {
+            screen: CategoryMealsScreen
+        },
+        MealDetail: {
+            screen: MealDetailScreen
+        }
     },
     {
     defaultNavigationOptions: {
