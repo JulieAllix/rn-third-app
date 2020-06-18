@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { enableScreens } from 'react-native-screens';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 //import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -10,6 +11,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //import MealsNavigator from './navigation/MealsNavigator';
+import HeaderButton from './components/HeaderButton';
 
 import CategoriesScreen from './screens/CategoriesScreen';
 import CategoryMealsScreen from './screens/CategoryMealsScreen';
@@ -61,7 +63,23 @@ export default function App() {
           name="CategoryMeals" 
           component={CategoryMealsScreen} 
         />
-        <Stack.Screen name="MealDetail" component={MealDetailScreen} />
+        <Stack.Screen 
+          name="MealDetail" 
+          component={MealDetailScreen} 
+          options={{
+            headerRight: (props) => (
+                <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                    <Item 
+                        title='Favorite' 
+                        iconName='ios-star' 
+                        onPress={() => {
+                            console.log('Mark as favorite !');
+                        }} 
+                    />
+                </HeaderButtons>
+            )
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
 

@@ -33,8 +33,6 @@ const CategoryMealsScreen = ({ route, navigation }) => {
 
     const {categoryId} = route.params;
     const catId = JSON.parse(JSON.stringify(categoryId));
-    console.log(catId);
-    CATEGORIES.map(cat => console.log(cat.id));
     const selectedCategory = CATEGORIES.find(cat => cat.id == catId);
 
     React.useLayoutEffect(() => {

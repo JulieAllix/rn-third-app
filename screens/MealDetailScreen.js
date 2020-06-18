@@ -5,17 +5,21 @@ import {
     Button, 
     StyleSheet 
 } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import { MEALS } from '../data/dummy-data';
-import HeaderButton from '../components/HeaderButton';
+
 import MealDetail from '../components/MealDetail';
 
 const MealDetailScreen = ({ route, navigation }) => {
     const { id } = route.params;
-    const mealId = JSON.stringify(id);
-
+    const mealId = JSON.parse(JSON.stringify(id));
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            title: selectedMeal.title,
+        });
+    });
 
     return (
         <View style={styles.screen}>
