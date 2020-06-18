@@ -4,7 +4,13 @@ import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { enableScreens } from 'react-native-screens';
 
+//import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import MealsNavigator from './navigation/MealsNavigator';
+import FavoritesScreen from './screens/FavoritesScreen';
+import CategoriesScreen from './screens/CategoriesScreen';
 
 enableScreens();
 
@@ -17,6 +23,7 @@ const fetchFonts = () => {
 
 export default function App() {
   const [fontLoaded, setFontLoaded] = useState(false);
+  const Tab = createBottomTabNavigator();
 
   if (!fontLoaded) {
     return (
@@ -28,7 +35,12 @@ export default function App() {
   };
 
   return (
-    <MealsNavigator />
+    <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Meals" component={MealsNavigator} />
+          <Tab.Screen name="Favorites" component={FavoritesScreen} />
+        </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 

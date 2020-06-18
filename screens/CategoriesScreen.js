@@ -18,11 +18,11 @@ const CategoriesScreen = props => {
                 color={itemData.item.color}
                 onSelect={
                     () => {
-                        props.navigation.navigate({ 
-                            routeName: 'CategoryMeals', 
+                        props.navigation.navigate( 
+                            'CategoryMeals',{ 
                             params: {
                                 categoryId: itemData.item.id
-                            }
+                            }}
                         })
                     }
                 }
