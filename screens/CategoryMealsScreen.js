@@ -35,6 +35,7 @@ const CategoryMealsScreen = ({ route, navigation }) => {
     const catId = JSON.parse(JSON.stringify(categoryId));
     const selectedCategory = CATEGORIES.find(cat => cat.id == catId);
 
+    // To set the header title dynamically
     React.useLayoutEffect(() => {
         navigation.setOptions({
             title: selectedCategory.title,

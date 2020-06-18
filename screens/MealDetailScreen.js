@@ -37,27 +37,6 @@ const MealDetailScreen = ({ route, navigation }) => {
     );
 };
 
-MealDetailScreen.navigationOptions = (navigationData) => {
-    const { id } = route.params;
-    const mealId = JSON.stringify(id);
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
-
-    return {
-        headerTitle: selectedMeal.title,
-        headerRight: (
-            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item 
-                    title='Favorite' 
-                    iconName='ios-star' 
-                    onPress={() => {
-                        console.log('Mark as favorite !');
-                    }} 
-                />
-            </HeaderButtons>
-        )
-    };
-};
-
 const styles = StyleSheet.create({
     screen: {
         flex: 1,

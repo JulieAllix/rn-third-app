@@ -1,20 +1,24 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
-//import { createStackNavigator } from 'react-navigation-stack';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
-//import { createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
+
+import HeaderButton from '../components/HeaderButton';
+
 import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function MealsNavigator() {
+const Meals = () => {
     return (
         <Stack.Navigator
             initialRouteName="Categories"
@@ -24,56 +28,45 @@ function MealsNavigator() {
                 headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
             }}
         >
-            <Stack.Screen name="Categories" component={CategoriesScreen} />
-            <Stack.Screen name="CategoryMeals" component={CategoryMealsScreen} />
-            <Stack.Screen name="MealDetail" component={MealDetailScreen} />
+            <Stack.Screen 
+                name="Categories" 
+                component={CategoriesScreen} 
+                options={({ route }) => ({ title: 'Meal Categories'})}
+            />
+            <Stack.Screen 
+                name="CategoryMeals" 
+                component={CategoryMealsScreen} 
+            />
+            <Stack.Screen 
+                name="MealDetail" 
+                component={MealDetailScreen} 
+                options={{
+                    headerRight: (props) => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item 
+                                title='Favorite' 
+                                iconName='ios-star' 
+                                onPress={() => {
+                                    console.log('Mark as favorite !');
+                                }} 
+                            />
+                        </HeaderButtons>
+                    )
+                }}
+            />
         </Stack.Navigator>
-  );
+    );
 }
 
-/*
-const MealsNavigator = createStackNavigator(
-    {
-        Categories: {
-            screen: CategoriesScreen
-        },
-        CategoryMeals: {
-            screen: CategoryMealsScreen
-        },
-        MealDetail: {
-            screen: MealDetailScreen
-        }
-    },
-    {
-    defaultNavigationOptions: {
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
-        },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
-    }
-});
-
-/*
-const Tab = createBottomTabNavigator();
-
-export default function MealsFavTabNavigator() {
+const MealsFavTabNavigator = () => {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
-                <Tab.Screen name="Meals" component={MealsNavigator} />
-                <Tab.Screen name="Favorites" component={FavoritesScreen} />
-            </Tab.Navigator>
+          <Tab.Navigator>
+            <Tab.Screen name="Meals" component={Meals} />
+            <Tab.Screen name="Favorites" component={FavoritesScreen} />
+          </Tab.Navigator>
         </NavigationContainer>
-    );
-};
+      );
+}
 
-
-const MealsFavTabNavigator = createBottomTabNavigator({
-    Meals: MealsNavigator,
-    Favorites: FavoritesScreen
-});
-
-export default createAppContainer(MealsFavTabNavigator);
-
-*/
-export default MealsNavigator;
+export default MealsFavTabNavigator;
