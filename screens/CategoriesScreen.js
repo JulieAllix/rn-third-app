@@ -10,7 +10,7 @@ import {
 import { CATEGORIES } from '../data/dummy-data';
 import CategoryGridTile from '../components/CategoryGridTile';
 
-const CategoriesScreen = props => {
+const CategoriesScreen = ({ navigation }) => {
     const renderGridItem = (itemData) => {
         return (
             <CategoryGridTile 
@@ -18,12 +18,10 @@ const CategoriesScreen = props => {
                 color={itemData.item.color}
                 onSelect={
                     () => {
-                        props.navigation.navigate( 
-                            'CategoryMeals',{ 
-                            params: {
-                                categoryId: itemData.item.id
-                            }}
-                        })
+                        navigation.navigate( 
+                            'CategoryMeals',
+                            {categoryId: itemData.item.id}
+                        )
                     }
                 }
             />
@@ -38,10 +36,6 @@ const CategoriesScreen = props => {
             numColumns={2}
         />
     );
-};
-
-CategoriesScreen.navigationOptions = {
-    headerTitle: 'Meal Categories',
 };
 
 const styles = StyleSheet.create({

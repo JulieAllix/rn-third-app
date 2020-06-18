@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
 //import { createStackNavigator } from 'react-navigation-stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { createAppContainer } from 'react-navigation';
+//import { createAppContainer } from 'react-navigation';
 
 import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
-import Colors from '../constants/Colors'
+import Colors from '../constants/Colors';
 
 const Stack = createStackNavigator();
 

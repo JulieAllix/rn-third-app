@@ -11,9 +11,9 @@ import { MEALS } from '../data/dummy-data';
 import HeaderButton from '../components/HeaderButton';
 import MealDetail from '../components/MealDetail';
 
-const MealDetailScreen = props => {
-
-    const mealId = props.navigation.getParam('mealId');
+const MealDetailScreen = ({ route, navigation }) => {
+    const { id } = route.params;
+    const mealId = JSON.stringify(id);
 
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
@@ -34,7 +34,8 @@ const MealDetailScreen = props => {
 };
 
 MealDetailScreen.navigationOptions = (navigationData) => {
-    const mealId = navigationData.navigation.getParam('mealId');
+    const { id } = route.params;
+    const mealId = JSON.stringify(id);
     const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
     return {

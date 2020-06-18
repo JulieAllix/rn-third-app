@@ -9,7 +9,8 @@ import {
 import { CATEGORIES, MEALS } from '../data/dummy-data';
 import MealItem from '../components/MealItem';
 
-const CategoryMealsScreen = props => {
+const CategoryMealsScreen = ({ route, navigation }) => {
+
     const renderMealItem = itemData => {
         return (
             <MealItem 
@@ -20,19 +21,27 @@ const CategoryMealsScreen = props => {
                 affordability={itemData.item.affordability}
                 onSelectMeal={
                     () => {
-                        props.navigation.navigate({ 
-                            routeName: 'MealDetail', 
-                            params: {
-                                mealId: itemData.item.id
-                            }
-                        })
+                        navigation.navigate(
+                            'MealDetail', 
+                            {id: itemData.item.id}
+                        )
                     }
                 } 
             />
         );
     };
 
-    const catId = props.navigation.getParam('categoryId');
+    const {categoryId} = route.params;
+    const catId = JSON.parse(JSON.stringify(categoryId));
+    console.log(catId);
+    CATEGORIES.map(cat => console.log(cat.id));
+    const selectedCategory = CATEGORIES.find(cat => cat.id == catId);
+
+    React.useLayoutEffect(() => {
+        navigation.setOptions({
+            title: selectedCategory.title,
+        });
+    });
 
     const displayedMeals = MEALS.filter(
         meal => meal.categoryIds.indexOf(catId) >= 0
@@ -48,15 +57,6 @@ const CategoryMealsScreen = props => {
             />
         </View>
     );
-};
-
-CategoryMealsScreen.navigationOptions = (navigationData) => {
-    const catId = navigationData.navigation.getParam('categoryId');
-    const selectedCategory = CATEGORIES.find(cat => cat.id === catId);
-
-    return {
-        headerTitle: selectedCategory.title,
-    };
 };
 
 const styles = StyleSheet.create({
