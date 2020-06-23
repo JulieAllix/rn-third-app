@@ -21,15 +21,17 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const MaterialTab = createMaterialBottomTabNavigator();
 
+const defaultStackNavOptions = {
+    headerStyle: {backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'},
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+};
+
 const Meals = () => {
     return (
         <Stack.Navigator
             initialRouteName="Categories"
             headerMode="screen"
-            screenOptions={{
-                headerStyle: {backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'},
-                headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-            }}
+            screenOptions={defaultStackNavOptions}
         >
             <Stack.Screen 
                 name="Categories" 
@@ -59,7 +61,28 @@ const Meals = () => {
             />
         </Stack.Navigator>
     );
-}
+};
+
+const FavNavigator = () => {
+    return (
+        <Stack.Navigator
+            initialRouteName="Favorites"
+            headerMode="screen"
+            screenOptions={defaultStackNavOptions}
+        >
+            <Stack.Screen 
+                name="Favorites" 
+                component={FavoritesScreen} 
+                options={({ route }) => ({ title: 'Your favorite recipes'})}
+            />
+            <Stack.Screen 
+                name="MealDetail" 
+                component={MealDetailScreen} 
+                options={({ route }) => ({ title: 'Meal Details'})}
+            />
+        </Stack.Navigator>
+    );
+};
 
 const MealsFavTabNavigator = () => {
     if (Platform.OS === 'android') {
@@ -85,7 +108,7 @@ const MealsFavTabNavigator = () => {
                     />
                     <MaterialTab.Screen 
                         name="Favorites" 
-                        component={FavoritesScreen}
+                        component={FavNavigator}
                         options={{
                             tabBarIcon: (tabInfo) => {
                                 return <Ionicons 
@@ -123,7 +146,7 @@ const MealsFavTabNavigator = () => {
                     />
                     <Tab.Screen 
                         name="Favorites" 
-                        component={FavoritesScreen}
+                        component={FavNavigator}
                         options={{
                             tabBarIcon: (tabInfo) => {
                                 return <Ionicons 
