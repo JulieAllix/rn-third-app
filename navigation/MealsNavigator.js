@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform } from 'react-native';
+import { Platform, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -27,6 +27,12 @@ const Drawer = createDrawerNavigator();
 
 const defaultStackNavOptions = {
     headerStyle: {backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'},
+    headerTitleStyle: {
+        fontFamily: 'merriweather'
+    },
+    headerBackTitleStyle: {
+        fontFamily: 'montserrat'
+    },
     headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
 };
 
@@ -123,7 +129,7 @@ const MealsFavTabNavigator = () => {
         return (
             <MaterialTab.Navigator
                 activeColor="white"
-                shifting
+                shifting   
             >
                 <MaterialTab.Screen 
                     name="Meals" 
@@ -136,7 +142,8 @@ const MealsFavTabNavigator = () => {
                                 color={tabInfo.color}
                             />;
                         },
-                        tabBarColor: Colors.primaryColor
+                        tabBarColor: Colors.primaryColor,
+                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Meals</Text>
                     }}
                 />
                 <MaterialTab.Screen 
@@ -150,7 +157,8 @@ const MealsFavTabNavigator = () => {
                                 color={tabInfo.color}
                             />;
                         },
-                        tabBarColor: Colors.accentColor
+                        tabBarColor: Colors.accentColor,
+                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Favorites</Text>
                     }}
                 />
             </MaterialTab.Navigator>
@@ -159,7 +167,10 @@ const MealsFavTabNavigator = () => {
         return (
             <Tab.Navigator
                 tabBarOptions={{
-                    activeTintColor: Colors.accentColor
+                    activeTintColor: Colors.accentColor,
+                    labelStyle: {
+                        fontFamily: 'montserrat'
+                    }
                 }}
             >
                 <Tab.Screen 
