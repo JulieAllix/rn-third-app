@@ -227,10 +227,17 @@ const FiltersNavigator = ({ navigation }) => {
 const MainNavigator = () => {
     return (
         <NavigationContainer>
-            <Drawer.Navigator>
+            <Drawer.Navigator
+                drawerContentOptions={{
+                    activeTintColor: Colors.accentColor,
+                    labelStyle: {
+                        fontFamily: 'montserrat'
+                    }
+                }}>
                 <Drawer.Screen 
                     name="MealsFavs" 
                     component={MealsFavTabNavigator} 
+                    options={() => ({drawerLabel: 'Meals'})}
                 />
                 <Drawer.Screen 
                     name="Filters" 
