@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -61,9 +62,37 @@ const Meals = () => {
 const MealsFavTabNavigator = () => {
     return (
         <NavigationContainer>
-          <Tab.Navigator>
-            <Tab.Screen name="Meals" component={Meals} />
-            <Tab.Screen name="Favorites" component={FavoritesScreen} />
+          <Tab.Navigator
+            tabBarOptions={{
+                activeTintColor: Colors.accentColor
+            }}
+          >
+            <Tab.Screen 
+                name="Meals" 
+                component={Meals}
+                options={{
+                    tabBarIcon: (tabInfo) => {
+                        return <Ionicons 
+                            name='ios-restaurant' 
+                            size={25} 
+                            color={tabInfo.color}
+                        />;
+                    }
+                }}
+            />
+            <Tab.Screen 
+                name="Favorites" 
+                component={FavoritesScreen}
+                options={{
+                    tabBarIcon: (tabInfo) => {
+                        return <Ionicons 
+                            name='ios-star' 
+                            size={25} 
+                            color={tabInfo.color}
+                        />;
+                    }
+                }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       );
