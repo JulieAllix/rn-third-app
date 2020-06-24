@@ -308,32 +308,34 @@ export const MEALS = [
   ),
   new Meal(
     'm10',
-    ['c1', 'c2', 'c5'],
-    'Asparagus Salad with Cherry Tomatoes',
-    'cher',
+    ['c1', 'c2', 'c3', 'c5'],
+    'Salade Caesar framboise avocat',
+    'coûteux',
     'simple',
-    'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+    'https://qccdn.ar-cdn.com/recipes/port250/f19952ad-1d1a-4366-ad5c-e44cd579a621.jpg',
     30,
     [
-      'White and Green Asparagus',
-      '30g Pine Nuts',
-      '300g Cherry Tomatoes',
-      'Salad',
-      'Salt, Pepper and Olive Oil'
+      'pousses d\'épinards',
+      'poulet',
+      '1 demi-avocat',
+      'framboises',
+      'copeaux de parmesan',
+      'crackers',
+      'sauce caesar'
     ],
     [
-      'Wash, peel and cut the asparagus',
-      'Cook in salted water',
-      'Salt and pepper the asparagus',
-      'Roast the pine nuts',
-      'Halve the tomatoes',
-      'Mix with asparagus, salad and dressing',
-      'Serve with Baguette'
+      'Disposez les épinards dans une assiette.',
+      'Cuisez le poulet à la poêle.',
+      'Disposez le poulet dans l\'assiette.',
+      'Coupez un demi-avocat en tranches fines et disposez le au sommet de la salade.',
+      'Disposez les framboises et le parmesan.',
+      'Cassez un crakcers en plus petits morceaux',
+      'Tracer des triats de sauce caesar'
     ],
     true,
-    true,
-    true,
-    true
+    false,
+    false,
+    false
   ),
   new Meal(
     'm11',
