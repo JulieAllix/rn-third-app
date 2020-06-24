@@ -2,26 +2,23 @@ import Category from '../models/category';
 import Meal from '../models/meal';
 
 export const CATEGORIES = [
-  new Category('c11', 'Sucré', '#e01e37'),
-  new Category('c12', 'Salades', '#da1e37'),
-  new Category('c13', 'Tapas', '#c71f37'),
-  new Category("c1", 'Italien', '#bd1f36'),
-  new Category('c2', 'Rapide & facile', '#b21e35'),
-  new Category('c3', 'Hamburgers', '#a71e34'),
-  new Category('c4', 'Allemand', '#a11d33'),
-  new Category('c5', 'Léger', '#85182a'),
-  new Category('c6', 'Exotique', '#6e1423'),
-  new Category('c7', 'Petit-Déjeuner', '#641220'),
-  new Category('c8', 'Asiatique', '#e01e37'),
-  new Category('c9', 'Français', '#da1e37'),
-  new Category('c10', 'Estival', '#c71f37'),
-
+  new Category('c1', 'Rapide & facile', '#ffba08'),
+  new Category('c2', 'Léger', '#faa307'),
+  new Category('c3', 'Salades', '#f48c06'),
+  new Category('c4', 'Tapas', '#e85d04'),
+  new Category('c5', 'Estival', '#dc2f02'),
+  new Category('c6', 'Petit-Déjeuner', '#d00000'),
+  new Category('c7', 'Sucré', '#9d0208'),
+  new Category('c8', 'Italien', '#6a040f'),
+  new Category('c9', 'Hamburgers', '#370617'),
+  new Category('c10', 'Asiatique', '#03071e'),
+  new Category('c11', 'Français', '#370617'),
 ];
 
 export const MEALS = [
   new Meal(
     'm1',
-    ['c1', 'c2'],
+    ['c8', 'c1'],
     'Spaghetti with Tomato Sauce',
     'abordable',
     'simple',
@@ -52,7 +49,7 @@ export const MEALS = [
 
   new Meal(
     'm2',
-    ['c2'],
+    ['c1'],
     'Toast Hawaii',
     'abordable',
     'simple',
@@ -78,7 +75,7 @@ export const MEALS = [
 
   new Meal(
     'm3',
-    ['c3'],
+    ['c9'],
     'Classic Hamburger',
     'coûteux',
     'simple',
@@ -107,30 +104,25 @@ export const MEALS = [
 
   new Meal(
     'm4',
-    ['c4'],
-    'Wiener Schnitzel',
-    'cher',
-    'complexe',
-    'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
-    60,
+    ['c1', 'c6'],
+    'Egg Muffin',
+    'abordable',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/03/egg-muffin-4.jpg',
+    15,
     [
-      '8 Veal Cutlets',
-      '4 Eggs',
-      '200g Bread Crumbs',
-      '100g Flour',
-      '300ml Butter',
-      '100g Vegetable Oil',
-      'Salt',
-      'Lemon Slices'
+      '2 pains muffin',
+      '2 œufs',
+      '4 tranches de lard',
+      '2 tranches de cheddar',
+      'Sel & poivre du moulin'
     ],
     [
-      'Tenderize the veal to about 2–4mm, and salt on both sides.',
-      'On a flat plate, stir the eggs briefly with a fork.',
-      'Lightly coat the cutlets in flour then dip into the egg, and finally, coat in breadcrumbs.',
-      'Heat the butter and oil in a large pan (allow the fat to get very hot) and fry the schnitzels until golden brown on both sides.',
-      'Make sure to toss the pan regularly so that the schnitzels are surrounded by oil and the crumbing becomes ‘fluffy’.',
-      'Remove, and drain on kitchen paper. Fry the parsley in the remaining oil and drain.',
-      'Place the schnitzels on awarmed plate and serve garnishedwith parsley and slices of lemon.'
+      'Beurrez 2 emporte-pièces et déposez-les dans une poêle chaude préalablement graissée. Cassez les œufs dans les emporte-pièces et laissez cuire à feu moyen, à couvert.',
+      'En fin de cuisson, décollez-les à l’aide de la pointe d’un couteau et retournez-les pour cuire le jaune (facultatif). Réservez.',
+      'Coupez les muffins anglais en deux puis faites-les dorer dans la poêle. Faites ensuite griller les tranches de bacon. Pendant ce temps, déposez le cheddar sur la base des pains muffins encore chauds.',
+      'Déposez ensuite les tranches de bacon et les œufs. Recouvrez le tout avec le chapeau du pain anglais.',
+      'Il ne vous reste plus qu’à déguster avec un bon verre de jus d’orange !'
     ],
     false,
     false,
@@ -140,7 +132,7 @@ export const MEALS = [
 
   new Meal(
     'm5',
-    ['c2', 'c5', 'c10'],
+    ['c1', 'c2', 'c5'],
     'Salad with Smoked Salmon',
     'cher',
     'simple',
@@ -172,40 +164,45 @@ export const MEALS = [
 
   new Meal(
     'm6',
-    ['c6', 'c10'],
-    'Delicious Orange Mousse',
-    'abordable',
-    'difficile',
-    'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
-    240,
-    [
-      '4 Sheets of Gelatine',
-      '150ml Orange Juice',
-      '80g Sugar',
-      '300g Yoghurt',
-      '200g Cream',
-      'Orange Peel'
+    ['c2', 'c5', 'c11'],
+    'Crumble aux légumes',
+    'coûteux',
+    'complexe',
+    'https://assets.afcdn.com/recipe/20160621/31268_w600.jpg',
+    90,
+    [   
+    '1 kg de tomate',
+    '1 aubergine',
+    '3 courgettes bien fermes',
+    '1 poivron rouge et 1 vert',
+    '1 oignon',
+    '1 gousse d\'ail',
+    '3 cuillères à soupe d\'huile d\'olive',
+    'Thym',
+    'Romarin',
+    'Poivre',
+    'Sel',
+    '150 g de farine',
+    '100 g de beurre',
+    '40 g de pignons',
+    '60 g de parmesan'
     ],
     [
-      'Dissolve gelatine in pot',
-      'Add orange juice and sugar',
-      'Take pot off the stove',
-      'Add 2 tablespoons of yoghurt',
-      'Stir gelatin under remaining yoghurt',
-      'Cool everything down in the refrigerator',
-      'Whip the cream and lift it under die orange mass',
-      'Cool down again for at least 4 hours',
-      'Serve with orange peel'
+      'Émincez l\oignon et hachez très finement l\'ail après en avoir ôté le germe. Faites chauffer l\'huile dans y cocotte et faites y revenir l\'ail et l\'oignon.',
+      'Coupez l\'aubergine en petits cubes et mettez-les dans la cocotte. Lorsqu\'elles sont bien dorées, ajoutez les poivrons coupés en lanières. Assaisonnez avexc le thym, le romarin, le sel et le poivre.',
+      'Au bout de 20 mn, ajoutez les courgettes coupées en rondelles et les tomates pelées et épépinées. Mélangez bien et maintenir une cuisson assez vive pour que les légumes rendent leur eau.',
+      'Pendant ce temps, préchauffez le four thermostat 6 (180°C) et confectionnez les miettes : mélangez du bout des doigts la farine, le parmesan et le beurre. Ajoutez les pignons.',
+      'Versez les légumes dans un plat et répartissez les miettes dessus. Laissez cuire dans le four chaud 20 à 30 mn.',
     ],
     true,
     false,
     true,
-    false
+    true
   ),
 
   new Meal(
     'm7',
-    ['c7'],
+    ['c6'],
     'Pancakes',
     'abordable',
     'simple',
@@ -234,7 +231,7 @@ export const MEALS = [
 
   new Meal(
     'm8',
-    ['c8'],
+    ['c10'],
     'Creamy Indian Chicken Curry',
     'coûteux',
     'complexe',
@@ -265,7 +262,7 @@ export const MEALS = [
 
   new Meal(
     'm9',
-    ['c9'],
+    ['c11'],
     'Chocolate Souffle',
     'abordable',
     'difficile',
@@ -311,7 +308,7 @@ export const MEALS = [
   ),
   new Meal(
     'm10',
-    ['c2', 'c5', 'c10'],
+    ['c1', 'c2', 'c5'],
     'Asparagus Salad with Cherry Tomatoes',
     'cher',
     'simple',
@@ -340,7 +337,7 @@ export const MEALS = [
   ),
   new Meal(
     'm11',
-    ['c12', 'c1', 'c2', 'c5', 'c10'],
+    ['c3', 'c8', 'c1', 'c2', 'c5'],
     'Salade de melon, jambon de parme et burrata',
     'coûteux',
     'simple',
@@ -377,7 +374,7 @@ export const MEALS = [
   ),
   new Meal(
     'm12',
-    ['c2', 'c13'],
+    ['c1', 'c4'],
     'Frites de patates douces au four',
     'abordable',
     'simple',
@@ -406,7 +403,7 @@ export const MEALS = [
   ),
   new Meal(
     'm13',
-    ['c2', 'c5', 'c9', 'c10'],
+    ['c1', 'c2', 'c11', 'c5'],
     'Tarte à la tomate et à la moutarde',
     'abordable',
     'simple',
@@ -434,7 +431,7 @@ export const MEALS = [
   ),
   new Meal(
     'm14',
-    ['c2', 'c5'],
+    ['c1', 'c2'],
     'Gratin de courgettes',
     'abordable',
     'simple',
@@ -462,6 +459,92 @@ export const MEALS = [
       'À la sortie du four, laisser refroidir quelques minutes avant de servir. Ce plat est à déguster seul ou en accompagnement d’une viande.'
     ],
     true,
+    false,
+    true,
+    false
+  ),
+  new Meal(
+    'm15',
+    ['c1'],
+    'Club sandwich au poulet, bacon & avocat',
+    'coûteux',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/05/Capture-d%E2%80%99e%CC%81cran-2019-05-02-a%CC%80-17.20.23.jpg',
+    15,
+    [
+      '3 tranches de pain de mie',
+      '1 filet de poulet',
+      'Quelques lamelles de bacon',
+      '1 avocat',
+      'Quelques feuilles de sucrine',
+      'Tomates cerises',
+      '1 jaune d’œuf',
+      'Huile d’arachide',
+      'Basilic',
+      'Moutarde',
+    ],
+    [
+      'Salez et poivrez le poulet puis faites-le cuire dans un filet d’huile d’arachide et réservez.', 
+      'Réalisez ensuite une mayonnaise. Pour ce faire, mélangez un jaune d’œuf et la moutarde puis incorporez progressivement l’huile en fouettant continuellement.',
+      'Ciselez finement le basilic et incorporez-le à la mayonnaise.','Faites griller le bacon et réservez.',
+      'Dans cette même poêle, déposez le pain de mie afin de le faire dorer dans le jus de cuisson.',
+      'Entre temps, tranchez des lamelles d’avocat et de poulet, coupez les tomates cerises et lavez la sucrine.', 
+      'Tartinez les tranches de pain de mie de mayonnaise puis dressez du poulet et bacon sur l’une d’elles.',
+      'Recouvrez d’une tranche de pain de mie et déposez quelques lamelles d’avocat, de tomates et de feuilles de sucrine.',
+      'Recouvrez de la dernière tranche de pain de mie. Finissez en piquant le club sandwich avec des bâtonnets pour le faire tenir. C’est prêt à être dégusté !',
+    ],
+    false,
+    false,
+    false,
+    true
+  ),
+  new Meal(
+    'm16',
+    ['c1', 'c11'],
+    'Pommes de terre au four farcies au fromage',
+    'abordable',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/05/Capture-d%E2%80%99e%CC%81cran-2019-05-09-a%CC%80-11.08.20.jpg',
+    15,
+    [
+      '2 pommes de terre',
+      '50 g de maïs doux en conserve',
+      '30 g de fromage',
+      '30 g de crème fraîche',
+      '5 g d’aneth haché',
+      '1/6 c. à café de sel',
+      '1 c. à café d’huile végétale'
+    ],
+    [
+      'Lavez les pommes de terre et badigeonnez-les d’huile puis salez à votre convenance. Enveloppez chacune d’elle dans une feuille d’aluminium et enfournez une heure à 180°C.',
+      'Pendant ce temps, râpez le fromage puis faites une profonde incision dans chaque pomme de terre. À l’aide d’une fourchette, réduisez le cœur de celles-ci en purée.',
+      'Garnissez-les de fromage, quelques maïs, une cuillère à soupe de crème et un peu d’aneth. Il ne vous reste plus qu’à servir et planter votre fourchette !',
+    ],
+    true,
+    false,
+    true,
+    false
+  ),
+  new Meal(
+    'm17',
+    ['c1', 'c6', 'c7'],
+    'Pain perdu',
+    'abordable',
+    'simple',
+    'https://assets.afcdn.com/recipe/20170112/30531_w600.jpg',
+    30,
+    [
+      '25cl de lait',
+      '3 oeufs',
+      '75g de sucre de canne',
+      '6 tranches épaisses de pain paysan',
+    ],
+    [
+      'Fouetter les oeufs avec le sucre et le lait.',
+      'Y tremper les tranches de pain.',
+      'Deux solutions pour la cuisson : les cuire à la poêle dans du beurre en les faisant dorer de chaque côté, ou, les cuire au four : beurrer légèrement un plat à gratin, y répartir les tranches, verser le reste du mélange (ajouter du sucre si envie), laisser cuire à 180°C (thermostat 6) jusqu\'à que les tranches soient dorées.',
+    ],
+    false,
     false,
     true,
     false
