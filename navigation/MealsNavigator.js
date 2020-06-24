@@ -47,7 +47,7 @@ const Meals = ({navigation}) => {
                 name="Categories" 
                 component={CategoriesScreen} 
                 options={({ route }) => ({ 
-                    title: 'Meal Categories',
+                    title: 'Catégories de recettes',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
@@ -99,7 +99,7 @@ const FavNavigator = ({ navigation }) => {
                 name="Favorites" 
                 component={FavoritesScreen} 
                 options={({ route }) => ({ 
-                    title: 'Your favorite recipes',
+                    title: 'Mes recettes préférées',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
@@ -143,7 +143,7 @@ const MealsFavTabNavigator = () => {
                             />;
                         },
                         tabBarColor: Colors.primaryColor,
-                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Meals</Text>
+                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Recettes</Text>
                     }}
                 />
                 <MaterialTab.Screen 
@@ -158,7 +158,7 @@ const MealsFavTabNavigator = () => {
                             />;
                         },
                         tabBarColor: Colors.accentColor,
-                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Favorites</Text>
+                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Favoris</Text>
                     }}
                 />
             </MaterialTab.Navigator>
@@ -174,7 +174,7 @@ const MealsFavTabNavigator = () => {
                 }}
             >
                 <Tab.Screen 
-                    name="Meals" 
+                    name="Recettes" 
                     component={Meals}
                     options={{
                         tabBarIcon: (tabInfo) => {
@@ -187,7 +187,7 @@ const MealsFavTabNavigator = () => {
                     }}
                 />
                 <Tab.Screen 
-                    name="Favorites" 
+                    name="Favoris" 
                     component={FavNavigator}
                     options={{
                         tabBarIcon: (tabInfo) => {
@@ -215,7 +215,7 @@ const FiltersNavigator = ({ navigation }) => {
                 name="Filters" 
                 component={FiltersScreen}
                 options={({ route }) => ({ 
-                    title: 'Filter Meals',
+                    title: 'Filtrer les recettes',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
@@ -259,10 +259,10 @@ const MainNavigator = () => {
                 <Drawer.Screen 
                     name="MealsFavs" 
                     component={MealsFavTabNavigator} 
-                    options={() => ({drawerLabel: 'Meals'})}
+                    options={() => ({drawerLabel: 'Recettes'})}
                 />
                 <Drawer.Screen 
-                    name="Filters" 
+                    name="Filtres" 
                     component={FiltersNavigator} 
                 />
             </Drawer.Navigator>

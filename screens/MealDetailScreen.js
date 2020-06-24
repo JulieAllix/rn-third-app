@@ -38,9 +38,9 @@ const MealDetailScreen = ({ route, navigation }) => {
                 <DefaultText>{selectedMeal.complexity.toUpperCase()}</DefaultText>
                 <DefaultText>{selectedMeal.affordability.toUpperCase()}</DefaultText>
             </View>
-            <Text style={styles.title}>Ingredients</Text>
+            <Text style={styles.title}>Ingrédients</Text>
             {selectedMeal.ingredients.map(ingredient => <ListItem key={ingredient}>{ingredient}</ListItem>)}
-            <Text style={styles.title}>Steps</Text>
+            <Text style={styles.title}>Etapes</Text>
             {selectedMeal.steps.map(step => <ListItem key={step}>{step}</ListItem>)}
         </ScrollView>
     );
