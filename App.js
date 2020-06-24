@@ -8,7 +8,7 @@ import MealsFavTabNavigator from './navigation/MealsNavigator';
 enableScreens();
 
 const fetchFonts = () => {
-  Font.loadAsync({
+  return Font.loadAsync({
     'merriweather': require('./assets/fonts/Merriweather-Regular.ttf'),
     'montserrat': require('./assets/fonts/Montserrat-Regular.ttf')
   });
@@ -29,4 +29,5 @@ export default function App() {
   return (
     <MealsFavTabNavigator />
   );
+  
 }

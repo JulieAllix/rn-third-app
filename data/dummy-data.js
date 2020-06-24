@@ -2,16 +2,20 @@ import Category from '../models/category';
 import Meal from '../models/meal';
 
 export const CATEGORIES = [
-  new Category("c1", 'Italian', '#f5428d'),
-  new Category('c2', 'Quick & Easy', '#f54242'),
-  new Category('c3', 'Hamburgers', '#f5a442'),
-  new Category('c4', 'German', '#f5d142'),
-  new Category('c5', 'Light & Lovely', '#368dff'),
-  new Category('c6', 'Exotic', '#41d95d'),
-  new Category('c7', 'Breakfast', '#9eecff'),
-  new Category('c8', 'Asian', '#b9ffb0'),
-  new Category('c9', 'French', '#ffc7ff'),
-  new Category('c10', 'Summer', '#47fced')
+  new Category('c11', 'Sucré', '#F94144'),
+  new Category('c12', 'Salades', '#F3722C'),
+  new Category('c13', 'Tapas', '#F8961E'),
+  new Category("c1", 'Italien', '#F9C74F'),
+  new Category('c2', 'Rapide & facile', '#90BE6D'),
+  new Category('c3', 'Hamburgers', '#43AA8B'),
+  new Category('c4', 'Allemand', '#577590'),
+  new Category('c5', 'Léger', '#F94144'),
+  new Category('c6', 'Exotique', '#F3722C'),
+  new Category('c7', 'Petit-Déjeuner', '#F8961E'),
+  new Category('c8', 'Asiatique', '#F9C74F'),
+  new Category('c9', 'Français', '#90BE6D'),
+  new Category('c10', 'Estival', '#43AA8B'),
+
 ];
 
 export const MEALS = [
@@ -333,5 +337,99 @@ export const MEALS = [
     true,
     true,
     true
-  )
+  ),
+  new Meal(
+    'm11',
+    ['c12', 'c1', 'c2', 'c5', 'c10'],
+    'Salade de melon, jambon de parme et burrata',
+    'average',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/06/image-14-2.jpg',
+    30,
+    [
+      'Roquette',
+      'Jambon de Parme',
+      'Burrata',
+      'Noisettes',
+      'Tomates cerises',
+      'Melon',
+      '1 Citron bio',
+      'Miel',
+      '1 gousse d’ail',
+      'Huile d’olive',
+      'Sel',
+      'Poivre du moulin'
+    ],
+    [
+      'Dans un poêle, faites torréfier les noisettes et laissez-les refroidir avant de retirer la peau en les frottant dans vos mains.', 
+      'Égrainez et épluchez le melon. Coupez-le en morceaux.', 
+      'Coupez les tomates en deux.',
+      'Incisez la burrata en son centre et râpez le zeste d’un citron par-dessus afin de la parfumer.', 
+      'Ajoutez un filet d’huile d’olive, une pincée de sel et du poivre du moulin.',
+      'Mélangez la moutarde, le jus de citron, le miel, l’huile d’olive et l’ail haché. Assaisonnez de sel et poivre.', 
+      'Hachez grossièrement les noisettes et saupoudrez-les sur la burrata.',
+      'Dans un saladier, dressez l’ensemble des ingrédients et dégustez cette délicieuse salade de jambon de Parme, melon et burrata.'
+    ],
+    true,
+    false,
+    false,
+    false
+  ),
+  new Meal(
+    'm12',
+    ['c2', 'c13'],
+    'Frites de patates douces au four',
+    'affordable',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/08/iStock-1051670100-1152x768.jpg',
+    45,
+    [
+      '2 patates douces',
+      '1 cuillère à café de sel',
+      '1 cuillère à café de poivre',
+      '4 cuillères à soupe d’huile d’olive',
+      '1 cuillère à café de paprika',
+      '1 pincée de piment d’Espelette'
+    ],
+    [
+      'Éplucher les patates douces puis les laver et les couper en bâtonnets.',
+      'Déposer les bâtonnets dans un saladier et les assaisonner de sel, poivre, paprika, piment d’Espelette et verser un filet d’huile d’olive.',
+      'Enrober les patates douces dans ce mélange à l’aide de vos mains.',
+      'Chemiser une plaque allant au four de papier sulfurisé et étaler les bâtonnets de patates douces. Enfourner dans un four préchauffé à 210 °C pour environ 30 à 35 minutes de cuisson en mode chaleur tournante.',
+      'Mélanger régulièrement pour une cuisson uniforme. Pour des frites ultras croustillantes, poursuivre la cuisson 5 minutes en mode grill.',
+      'Ces frites de patates douces sont à accompagner d’une sauce au lait de coco, ail et gingembre. Un délice exotique ! Ou encore d\'une sauce au bleu.'
+    ],
+    true,
+    false,
+    true,
+    false
+  ),
+  new Meal(
+    'm13',
+    ['c2', 'c5', 'c9', 'c10'],
+    'Tarte à la tomate et à la moutarde',
+    'affordable',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/07/image-84.jpg',
+    40,
+    [
+      '1 kg de belles tomates',
+      '1/2 c. à café d’herbes de Provence',
+      '2 à 3 c. à soupe d’huile d’olive',
+      '2 c. à soupe de moutarde',
+      '1 pâte brisée'
+    ],
+    [
+      'Couper les tomates en quartiers ou en rondelles d’environ 2 à 3 cm d’épaisseur. Retirer les pépins pour ne pas détremper la pâte.',
+      'Égouter les quartiers de tomate dans une passoire et les saler pour les faire dégorger.',
+      'Déposer la pâte dans le moule à tarte chemisé d’un papier sulfurisé puis foncer la pâte et passer un rouleau à pâtisserie sur le pourtour pour retirer l’excédent.',
+      'À l’aide d’une fourchette, piquer le fond de la pâte brisée puis étaler une couche régulière de moutarde.',
+      'Recouvrir le fond de tarte avec les quartiers de tomates en formant une rosace. Assaisonner de poivre du moulin, verser un filet d’huile d’olive et saupoudrer les herbes de Provence.',
+      'Enfourner 25 minutes dans un four préchauffé à 210 °C. À la sortie du four, démouler et servir tiède ou froid. Déguster cette bonne tarte salée à la tomate et à la moutarde.'
+    ],
+    false,
+    true,
+    true,
+    true
+  ),
 ];
