@@ -438,7 +438,7 @@ export const MEALS = [
     'abordable',
     'simple',
     'https://larecette.net/wp-content/uploads/2019/07/iStock-178992651.jpg',
-    15,
+    60,
     [
       '3 courgettes',
       '2 oignons',
@@ -447,14 +447,14 @@ export const MEALS = [
       '2 œufs',
       '2 c. à soupe de crème fraîche',
       '1 noisette de beurre ou huile d’olive',
-      'Sel, poivre'
+      'Sel, poivre, noix de muscade'
     ],
     [
       'Émincer finement les oignons en lamelles. Faire fondre une noix de beurre dans une poêle avant de faire revenir brièvement les oignons à feu doux.',
 
       'Préchauffer le four à 180 °C. Éplucher si besoin les courgettes et les coupées en rondelles. Une fois les oignons translucides, faire poêler les courgettes avec les oignons. En fin de cuisson, agrémenter avec l’ail haché.',
 
-      'Dans un bol, fouetter 2 cuillères à soupe de crème épaisse avec les œufs et le gruyère râpé. Assaisonner avec une pincée de sel et de poivre.',
+      'Dans un bol, fouetter 2 cuillères à soupe de crème épaisse avec les œufs et le gruyère râpé. Assaisonner avec une pincée de sel, de poivre et de noix de muscade.',
 
       'Verser les courgettes et les oignons colorés dans un plat à gratin. Recouvrir de sauce et enfourner pour un temps de cuisson d’environ 15-20 minutes en mode chaleur tournante. Faire gratiner 5 minutes en mode grill en fin de cuisson.',
 
