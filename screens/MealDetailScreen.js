@@ -57,9 +57,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
     title: {
-        fontFamily: 'merriweather',
+        fontFamily: 'abril',
         fontSize: 22,
         textAlign: 'center',
+        marginTop: 25,
+        marginBottom: 5
     },
     listItem: {
         marginVertical: 10,

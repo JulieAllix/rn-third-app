@@ -9,8 +9,13 @@ enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
+    'abril': require('./assets/fonts/AbrilFatface-Regular.ttf'),
+    'poppins': require('./assets/fonts/Poppins-Regular.ttf'),
+    'poppins-b': require('./assets/fonts/Poppins-Bold.ttf')
+    /*
     'merriweather': require('./assets/fonts/Merriweather-Regular.ttf'),
     'montserrat': require('./assets/fonts/Montserrat-Regular.ttf')
+    */
   });
 };
 

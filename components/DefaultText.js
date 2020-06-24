@@ -9,7 +9,7 @@ const DefaultText = props => {
 
 const styles = StyleSheet.create({
     text: {
-        fontFamily: 'montserrat'
+        fontFamily: 'poppins'
     }
 });
 

@@ -2,19 +2,19 @@ import Category from '../models/category';
 import Meal from '../models/meal';
 
 export const CATEGORIES = [
-  new Category('c11', 'Sucré', '#F94144'),
-  new Category('c12', 'Salades', '#F3722C'),
-  new Category('c13', 'Tapas', '#F8961E'),
-  new Category("c1", 'Italien', '#F9C74F'),
-  new Category('c2', 'Rapide & facile', '#90BE6D'),
-  new Category('c3', 'Hamburgers', '#43AA8B'),
-  new Category('c4', 'Allemand', '#577590'),
-  new Category('c5', 'Léger', '#F94144'),
-  new Category('c6', 'Exotique', '#F3722C'),
-  new Category('c7', 'Petit-Déjeuner', '#F8961E'),
-  new Category('c8', 'Asiatique', '#F9C74F'),
-  new Category('c9', 'Français', '#90BE6D'),
-  new Category('c10', 'Estival', '#43AA8B'),
+  new Category('c11', 'Sucré', '#e01e37'),
+  new Category('c12', 'Salades', '#da1e37'),
+  new Category('c13', 'Tapas', '#c71f37'),
+  new Category("c1", 'Italien', '#bd1f36'),
+  new Category('c2', 'Rapide & facile', '#b21e35'),
+  new Category('c3', 'Hamburgers', '#a71e34'),
+  new Category('c4', 'Allemand', '#a11d33'),
+  new Category('c5', 'Léger', '#85182a'),
+  new Category('c6', 'Exotique', '#6e1423'),
+  new Category('c7', 'Petit-Déjeuner', '#641220'),
+  new Category('c8', 'Asiatique', '#e01e37'),
+  new Category('c9', 'Français', '#da1e37'),
+  new Category('c10', 'Estival', '#c71f37'),
 
 ];
 
@@ -431,5 +431,39 @@ export const MEALS = [
     true,
     true,
     true
+  ),
+  new Meal(
+    'm14',
+    ['c2', 'c5'],
+    'Gratin de courgettes',
+    'abordable',
+    'simple',
+    'https://larecette.net/wp-content/uploads/2019/07/iStock-178992651.jpg',
+    15,
+    [
+      '3 courgettes',
+      '2 oignons',
+      '1 gousse d’ail',
+      '100 g de gruyère râpé',
+      '2 œufs',
+      '2 c. à soupe de crème fraîche',
+      '1 noisette de beurre ou huile d’olive',
+      'Sel, poivre'
+    ],
+    [
+      'Émincer finement les oignons en lamelles. Faire fondre une noix de beurre dans une poêle avant de faire revenir brièvement les oignons à feu doux.',
+
+      'Préchauffer le four à 180 °C. Éplucher si besoin les courgettes et les coupées en rondelles. Une fois les oignons translucides, faire poêler les courgettes avec les oignons. En fin de cuisson, agrémenter avec l’ail haché.',
+
+      'Dans un bol, fouetter 2 cuillères à soupe de crème épaisse avec les œufs et le gruyère râpé. Assaisonner avec une pincée de sel et de poivre.',
+
+      'Verser les courgettes et les oignons colorés dans un plat à gratin. Recouvrir de sauce et enfourner pour un temps de cuisson d’environ 15-20 minutes en mode chaleur tournante. Faire gratiner 5 minutes en mode grill en fin de cuisson.',
+
+      'À la sortie du four, laisser refroidir quelques minutes avant de servir. Ce plat est à déguster seul ou en accompagnement d’une viande.'
+    ],
+    true,
+    false,
+    true,
+    false
   ),
 ];

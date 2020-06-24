@@ -31,7 +31,7 @@ const CategoryGridTile = props => {
 const styles = StyleSheet.create({
     gridItem: {
         flex: 1,
-        margin: 15,
+        margin: 5,
         height: 150,
         borderRadius: 10,
         overflow: Platform.OS === 'android' && Platform.Version >= 21  ? 'hidden' : 'visible',
@@ -50,9 +50,10 @@ const styles = StyleSheet.create({
         shadowRadius: 10,
     },
     title: {
-        fontFamily: 'montserrat',
-        fontSize: 19,
+        fontFamily: 'abril',
+        fontSize: 25,
         textAlign: 'right',
+        color: 'white'
     }
 });
 

@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontFamily: 'montserrat',
+        fontFamily: 'abril',
         fontSize: 22,
         margin: 20,
         textAlign: 'center'

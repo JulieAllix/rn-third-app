@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 12,
     },
     title: {
-        fontFamily: 'montserrat',
+        fontFamily: 'abril',
         fontSize: 22,
         color: 'white',
         textAlign: 'center'

@@ -28,10 +28,12 @@ const Drawer = createDrawerNavigator();
 const defaultStackNavOptions = {
     headerStyle: {backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'},
     headerTitleStyle: {
-        fontFamily: 'merriweather'
+        fontFamily: 'poppins-b',
+        fontSize: 24,
+        fontWeight: 'bold',
     },
     headerBackTitleStyle: {
-        fontFamily: 'montserrat'
+        fontFamily: 'poppins'
     },
     headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
 };
@@ -47,7 +49,7 @@ const Meals = ({navigation}) => {
                 name="Categories" 
                 component={CategoriesScreen} 
                 options={({ route }) => ({ 
-                    title: 'Catégories de recettes',
+                    title: 'Catégories',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
@@ -99,7 +101,7 @@ const FavNavigator = ({ navigation }) => {
                 name="Favorites" 
                 component={FavoritesScreen} 
                 options={({ route }) => ({ 
-                    title: 'Mes recettes préférées',
+                    title: 'Recettes préférées',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
@@ -143,7 +145,7 @@ const MealsFavTabNavigator = () => {
                             />;
                         },
                         tabBarColor: Colors.primaryColor,
-                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Recettes</Text>
+                        tabBarLabel: <Text style={{fontFamily: 'poppins'}}>Recettes</Text>
                     }}
                 />
                 <MaterialTab.Screen 
@@ -158,7 +160,7 @@ const MealsFavTabNavigator = () => {
                             />;
                         },
                         tabBarColor: Colors.accentColor,
-                        tabBarLabel: <Text style={{fontFamily: 'montserrat'}}>Favoris</Text>
+                        tabBarLabel: <Text style={{fontFamily: 'poppins'}}>Favoris</Text>
                     }}
                 />
             </MaterialTab.Navigator>
@@ -169,7 +171,7 @@ const MealsFavTabNavigator = () => {
                 tabBarOptions={{
                     activeTintColor: Colors.accentColor,
                     labelStyle: {
-                        fontFamily: 'montserrat'
+                        fontFamily: 'poppins'
                     }
                 }}
             >
@@ -253,7 +255,7 @@ const MainNavigator = () => {
                 drawerContentOptions={{
                     activeTintColor: Colors.accentColor,
                     labelStyle: {
-                        fontFamily: 'montserrat'
+                        fontFamily: 'poppins'
                     }
                 }}>
                 <Drawer.Screen 
