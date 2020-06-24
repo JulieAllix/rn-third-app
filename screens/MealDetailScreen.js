@@ -1,6 +1,8 @@
 import React from 'react';
 import { 
+    ScrollView,
     View, 
+    Image,
     Text, 
     Button, 
     StyleSheet 
@@ -9,6 +11,13 @@ import {
 import { MEALS } from '../data/dummy-data';
 
 import MealDetail from '../components/MealDetail';
+import DefaultText from '../components/DefaultText';
+
+const ListItem = props => {
+    return <View style={styles.listItem}>
+        <DefaultText>{props.children}</DefaultText>
+    </View>
+};
 
 const MealDetailScreen = ({ route, navigation }) => {
     const { id } = route.params;
@@ -22,39 +31,43 @@ const MealDetailScreen = ({ route, navigation }) => {
     });
 
     return (
-        <View style={styles.screen}>
-            <MealDetail
-                title={selectedMeal.title} 
-                image={selectedMeal.imageUrl} 
-                duration={selectedMeal.duration}
-                complexity={selectedMeal.complexity}
-                affordability={selectedMeal.affordability}
-                ingredients={selectedMeal.ingredients}
-                steps={selectedMeal.steps}
-            />
-            <Text>{mealId}</Text>
-        </View>
+        <ScrollView>
+            <Image source={{uri: selectedMeal.imageUrl}} style={styles.image} />
+            <View style={styles.details}>
+                <DefaultText>{selectedMeal.duration}m</DefaultText>
+                <DefaultText>{selectedMeal.complexity.toUpperCase()}</DefaultText>
+                <DefaultText>{selectedMeal.affordability.toUpperCase()}</DefaultText>
+            </View>
+            <Text style={styles.title}>Ingredients</Text>
+            {selectedMeal.ingredients.map(ingredient => <ListItem key={ingredient}>{ingredient}</ListItem>)}
+            <Text style={styles.title}>Steps</Text>
+            {selectedMeal.steps.map(step => <ListItem key={step}>{step}</ListItem>)}
+        </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    screen: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+    image: {
+        width: '100%',
+        height: 200
+    },
+    details: {
+        flexDirection: 'row',
+        padding: 15,
+        justifyContent: 'space-around',
+    },
+    title: {
+        fontFamily: 'merriweather',
+        fontSize: 22,
+        textAlign: 'center',
+    },
+    listItem: {
+        marginVertical: 10,
+        marginHorizontal: 20,
+        borderColor: '#ccc',
+        borderWidth: 1,
+        padding: 10
     }
 });
 
 export default MealDetailScreen;
-
-            /*
-            <MealDetail 
-                title={itemData.item.title} 
-                image={itemData.item.imageUrl} 
-                duration={itemData.item.duration}
-                complexity={itemData.item.complexity}
-                affordability={itemData.item.affordability}
-                ingredients={itemData.item.ingredients}
-                steps={itemData.item.steps}
-            />
-            */
