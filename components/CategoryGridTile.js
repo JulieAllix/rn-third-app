@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'abril',
-        fontSize: 25,
+        fontSize: 23,
         textAlign: 'right',
         color: 'white'
     }
