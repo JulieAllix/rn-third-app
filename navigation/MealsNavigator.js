@@ -78,7 +78,9 @@ const Meals = ({navigation}) => {
                         <HeaderButtons HeaderButtonComponent={HeaderButton}>
                             <Item 
                                 title='Favorite' 
-                                iconName='ios-star' 
+                                iconName={
+                                    (route.params?.isFav) ? 'ios-star' : 'ios-star-outline'
+                                    } 
                                 onPress={route.params?.toggleFav}
                             />
                         </HeaderButtons>
@@ -119,7 +121,19 @@ const FavNavigator = ({ navigation }) => {
             <Stack.Screen 
                 name="MealDetail" 
                 component={MealDetailScreen} 
-                options={({ route }) => ({ title: 'Meal Details'})}
+                options={({ route }) => ({ 
+                    headerRight: (props) => (
+                        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+                            <Item 
+                                title='Favorite' 
+                                iconName={
+                                    (route.params?.isFav) ? 'ios-star' : 'ios-star-outline'
+                                    } 
+                                onPress={route.params?.toggleFav}
+                            />
+                        </HeaderButtons>
+                    )
+                })}
             />
         </Stack.Navigator>
     );
