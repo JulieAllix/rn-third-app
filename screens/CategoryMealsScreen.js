@@ -1,14 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
+import { CATEGORIES } from '../data/dummy-data';
 import MealList from '../components/MealList';
-
-import { CATEGORIES, MEALS } from '../data/dummy-data';
 
 const CategoryMealsScreen = ({ route, navigation }) => {
 
     const {categoryId} = route.params;
     const catId = JSON.parse(JSON.stringify(categoryId));
     const selectedCategory = CATEGORIES.find(cat => cat.id == catId);
+
+    const availableMeals = useSelector(state => state.meals.filteredMeals);
 
     // To set the header title dynamically
     React.useLayoutEffect(() => {
@@ -17,7 +19,7 @@ const CategoryMealsScreen = ({ route, navigation }) => {
         });
     });
 
-    const displayedMeals = MEALS.filter(
+    const displayedMeals = availableMeals.filter(
         meal => meal.categoryIds.indexOf(catId) >= 0
     );
 

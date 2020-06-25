@@ -1,10 +1,10 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { 
     ScrollView,
     View, 
     Image,
     Text, 
-    Button, 
     StyleSheet 
 } from 'react-native';
 
@@ -20,9 +20,11 @@ const ListItem = props => {
 };
 
 const MealDetailScreen = ({ route, navigation }) => {
+    const availableMeals = useSelector(state => state.meals.meals);
+
     const { id } = route.params;
     const mealId = JSON.parse(JSON.stringify(id));
-    const selectedMeal = MEALS.find(meal => meal.id === mealId);
+    const selectedMeal = availableMeals.find(meal => meal.id === mealId);
 
     React.useLayoutEffect(() => {
         navigation.setOptions({
