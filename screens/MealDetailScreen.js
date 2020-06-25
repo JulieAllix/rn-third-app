@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { 
     ScrollView,
     View, 
@@ -12,6 +12,8 @@ import { MEALS } from '../data/dummy-data';
 
 import MealDetail from '../components/MealDetail';
 import DefaultText from '../components/DefaultText';
+
+import { toggleFavorite } from '../store/actions/meals';
 
 const ListItem = props => {
     return <View style={styles.listItem}>
@@ -26,11 +28,21 @@ const MealDetailScreen = ({ route, navigation }) => {
     const mealId = JSON.parse(JSON.stringify(id));
     const selectedMeal = availableMeals.find(meal => meal.id === mealId);
 
+    const dispatch = useDispatch();
+
+    const toggleFavoriteHandler = useCallback(() => {
+        dispatch(toggleFavorite(mealId));
+    }, [dispatch, mealId]);
+
     React.useLayoutEffect(() => {
         navigation.setOptions({
-            title: selectedMeal.title,
+            title: selectedMeal.title
         });
     });
+
+    useEffect(() => {
+        navigation.setParams({toggleFav: toggleFavoriteHandler});
+    }, [toggleFavoriteHandler]);
 
     return (
         <ScrollView>

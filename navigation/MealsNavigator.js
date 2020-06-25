@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { Platform, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
@@ -72,19 +73,17 @@ const Meals = ({navigation}) => {
             <Stack.Screen 
                 name="MealDetail" 
                 component={MealDetailScreen} 
-                options={{
+                options={({ route }) => ({ 
                     headerRight: (props) => (
                         <HeaderButtons HeaderButtonComponent={HeaderButton}>
                             <Item 
                                 title='Favorite' 
                                 iconName='ios-star' 
-                                onPress={() => {
-                                    console.log('Mark as favorite !');
-                                }} 
+                                onPress={route.params?.toggleFav}
                             />
                         </HeaderButtons>
                     )
-                }}
+                })}
             />
         </Stack.Navigator>
     );
