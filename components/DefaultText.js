@@ -9,7 +9,8 @@ const DefaultText = props => {
 
 const styles = StyleSheet.create({
     text: {
-        fontFamily: 'poppins'
+        fontFamily: 'poppins',
+        textAlign: 'center',
     }
 });
 

@@ -1,8 +1,10 @@
 import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { CATEGORIES } from '../data/dummy-data';
 import MealList from '../components/MealList';
+import DefaultText from '../components/DefaultText';
 
 const CategoryMealsScreen = ({ route, navigation }) => {
 
@@ -23,6 +25,13 @@ const CategoryMealsScreen = ({ route, navigation }) => {
         meal => meal.categoryIds.indexOf(catId) >= 0
     );
 
+    if (displayedMeals.length === 0) {
+        return (
+            <View style={styles.content}>
+                <DefaultText>Pas de recette trouvée, vérifiez si vous avez appliqué des filtres !</DefaultText>
+            </View>
+        )
+    }
     return (
         <MealList 
             listData={displayedMeals} 
@@ -30,5 +39,14 @@ const CategoryMealsScreen = ({ route, navigation }) => {
         />
     );
 };
+
+const styles = StyleSheet.create({
+    content: {
+        flex: 1,
+        justifyContent: 'center',
+        alignContent: 'center',
+        padding: 10
+    }
+});
 
 export default CategoryMealsScreen;
