@@ -8,11 +8,13 @@ import { Provider } from 'react-redux';
 
 import MealsNavigator from './navigation/MealsNavigator';
 import mealsReducer from './store/reducers/meals';
+import screenReducer from './store/reducers/screen';
 
 enableScreens();
 
 const rootReducer = combineReducers({
-  meals: mealsReducer
+  meals: mealsReducer,
+  screen: screenReducer
 });
 
 const store = createStore(rootReducer);
@@ -30,6 +32,7 @@ const fetchFonts = () => {
 };
 
 export default function App() {
+
   const [fontLoaded, setFontLoaded] = useState(false);
 
   if (!fontLoaded) {
@@ -42,16 +45,13 @@ export default function App() {
   };
 
   return (
-
     <Provider store={store}>
       <SafeAreaView style={styles.screen}>
         <MealsNavigator />
       </SafeAreaView>
     </Provider>
-
   );
   
-
 }
 
 const styles = StyleSheet.create({

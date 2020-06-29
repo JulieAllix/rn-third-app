@@ -8,8 +8,6 @@ import {
     StyleSheet 
 } from 'react-native';
 
-import { MEALS } from '../data/dummy-data';
-
 import MealDetail from '../components/MealDetail';
 import DefaultText from '../components/DefaultText';
 

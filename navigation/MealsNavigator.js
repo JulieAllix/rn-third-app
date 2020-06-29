@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Platform, Text, Dimensions } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
+import { Ionicons } from '@expo/vector-icons';
+
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -26,38 +27,25 @@ const Tab = createBottomTabNavigator();
 const MaterialTab = createMaterialBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
+import { setAvailableDeviceWidth } from '../store/actions/screen';
 
+const defaultStackNavOptions = {
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
+        height: Platform.OS === 'android' ? 100 : 50,
+    },
+    headerTitleStyle: {
+        fontFamily: 'poppins-b',
+        fontSize: 24,
+        fontWeight: 'bold',
+    },
+    headerBackTitleStyle: {
+        fontFamily: 'poppins'
+    },
+    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+};
 
 const Meals = ({navigation}) => {
-    const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get('window').width);
-
-    useEffect(() => {
-        const updateLayout = () => {
-            setAvailableDeviceWidth(Dimensions.get('window').width);
-        };
-
-        Dimensions.addEventListener('change', updateLayout);
-
-        return () => {
-            Dimensions.removeEventListener('change', updateLayout);
-        };
-    });
-
-    const defaultStackNavOptions = {
-        headerStyle: {
-            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
-            height: availableDeviceWidth > 400 ? 70 : 70,
-        },
-        headerTitleStyle: {
-            fontFamily: 'poppins-b',
-            fontSize: 24,
-            fontWeight: 'bold',
-        },
-        headerBackTitleStyle: {
-            fontFamily: 'poppins'
-        },
-        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-    };
 
     return (
         <Stack.Navigator
@@ -281,6 +269,26 @@ const FiltersNavigator = ({ navigation }) => {
 };
 
 const MainNavigator = () => {
+    let availableDeviceWidth = useSelector(state => state.screen.availableDeviceWidth);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      Dimensions.addEventListener('change', updateLayout);
+      return () => {
+          Dimensions.removeEventListener('change', updateLayout);
+      };
+    });
+
+    const updateLayout = () => {
+        console.log('Before :');
+        console.log(availableDeviceWidth);
+        const newWidth = Dimensions.get('window').width;
+        dispatch(setAvailableDeviceWidth(newWidth));
+        availableDeviceWidth = newWidth;
+        console.log('After :');
+        console.log(availableDeviceWidth);
+    };
+
     return (
         <NavigationContainer>
             <Drawer.Navigator

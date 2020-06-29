@@ -5,7 +5,8 @@ import {
     Text, 
     StyleSheet ,
     Platform,
-    TouchableNativeFeedback
+    TouchableNativeFeedback,
+    Dimensions
 } from 'react-native';
 
 const CategoryGridTile = props => {
