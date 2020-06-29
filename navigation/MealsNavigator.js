@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Platform, Text } from 'react-native';
+import { Platform, Text, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 
@@ -27,7 +27,10 @@ const MaterialTab = createMaterialBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
 const defaultStackNavOptions = {
-    headerStyle: {backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white'},
+    headerStyle: {
+        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
+        height: availableDeviceWidth > 350 ? 50 : 20,
+    },
     headerTitleStyle: {
         fontFamily: 'poppins-b',
         fontSize: 24,
@@ -40,6 +43,20 @@ const defaultStackNavOptions = {
 };
 
 const Meals = ({navigation}) => {
+    const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get('window').width);
+
+    useEffect(() => {
+        const updateLayout = () => {
+            setAvailableDeviceWidth(Dimensions.get('window').width);
+        };
+
+        Dimensions.addEventListener('change', updateLayout);
+
+        return () => {
+            Dimensions.removeEventListener('change', updateLayout);
+        };
+    });
+
     return (
         <Stack.Navigator
             initialRouteName="Categories"

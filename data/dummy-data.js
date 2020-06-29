@@ -11,39 +11,40 @@ export const CATEGORIES = [
   new Category('c7', 'Sucré', '#9d0208'),
   new Category('c8', 'Italien', '#6a040f'),
   new Category('c9', 'Hamburgers', '#370617'),
-  new Category('c10', 'Asiatique', '#03071e'),
+  new Category('c10', 'Sucré-salé', '#03071e'),
   new Category('c11', 'Français', '#370617'),
 ];
 
 export const MEALS = [
   new Meal(
     'm1',
-    ['c8', 'c1'],
-    'Spaghetti with Tomato Sauce',
-    'abordable',
+    ['c10'],
+    'Poulet au coco et curry',
+    'coûteux',
     'simple',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
-    20,
+    'https://assets.afcdn.com/recipe/20161128/60272_w600.jpg',
+    75,
     [
-      '4 Tomatoes',
-      '1 Tablespoon of Olive Oil',
-      '1 Onion',
-      '250g Spaghetti',
-      'Spices',
-      'Cheese (optional)'
+      '4 escalopes de poulet (environ 120 g l\'une)',
+      'Copeaux de noix de coco',
+      'Gingembre en boîte (1 cuillère à café) ou frais',
+      'Lait de coco (1 boîte soit environ 300 g)',
+      'Curry en poudre (2 à 3 cuillères à soupe rases)',
+      'Pâte de curry rouge'
+      '1 oignon jaune',
+      '1 courgette',
+      'Champignons de Paris (une petite boîte)'
     ],
     [
-      'Cut the tomatoes and the onion into small pieces.',
-      'Boil some water - add salt to it once it boils.',
-      'Put the spaghetti into the boiling water - they should be done in about 10 to 12 minutes.',
-      'In the meantime, heaten up some olive oil and add the cut onion.',
-      'After 2 minutes, add the tomato pieces, salt, pepper and your other spices.',
-      'The sauce will be done once the spaghetti are.',
-      'Feel free to add some cheese on top of the finished dish.'
+      'Faire dorer les oignons dans de l\'huile d\'olive à feu moyen, jusqu\'à ce qu\'ils soit transparents.',
+      'Ajouter la moitié du curry, puis faites dorer les escalopes en remuant de temps en temps. Saler et poivrer.',
+      'Ajouter la courgette coupée en dés',
+      'Baisser le feu, et ajouter le gimgembre, puis couvrir de lait de coco, ajouter le reste du curry, et les copeaux de coco, et les champignons si souhaité.',
+      'Laisser mijoter environ 30 mn. Servir chaud accompagné de riz thaï ou de pommes de terre. bon appétit!'
     ],
+    true,
     false,
-    true,
-    true,
+    false,
     true
   ),
 
