@@ -52,7 +52,6 @@ const Meals = ({navigation}) => {
             fontFamily: 'poppins-b',
             fontSize: 24,
             fontWeight: 'bold',
-            marginVertical: 10,
         },
         headerBackTitleStyle: {
             fontFamily: 'poppins'
