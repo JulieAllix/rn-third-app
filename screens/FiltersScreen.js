@@ -4,7 +4,8 @@ import {
     Text, 
     StyleSheet, 
     Switch,
-    Platform
+    Platform,
+    ScrollView
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 
@@ -50,30 +51,31 @@ const FiltersScreen = props => {
     }, [saveFilters]);
 
     return (
-        <View style={styles.screen}>
-            <Text style={styles.title}>Filtres disponibles</Text>
-            <FilterSwitch 
-                label='Gluten-free' 
-                state={isGlutenFree}
-                onChange={newValue => setIsGlutenFree(newValue)}
-            />
-            <FilterSwitch 
-                label='Lactose-free' 
-                state={isLactoseFree}
-                onChange={newValue => setIsLactoseFree(newValue)}
-            />
-            <FilterSwitch 
-                label='Vegan' 
-                state={isVegan}
-                onChange={newValue => setIsVegan(newValue)}
-            />
-            <FilterSwitch 
-                label='Végétarien' 
-                state={isVegetarian}
-                onChange={newValue => setIsVegetarian(newValue)}
-            />
-
-        </View>
+        <ScrollView> 
+            <View style={styles.screen}>
+                <Text style={styles.title}>Filtres disponibles</Text>
+                <FilterSwitch 
+                    label='Gluten-free' 
+                    state={isGlutenFree}
+                    onChange={newValue => setIsGlutenFree(newValue)}
+                />
+                <FilterSwitch 
+                    label='Lactose-free' 
+                    state={isLactoseFree}
+                    onChange={newValue => setIsLactoseFree(newValue)}
+                />
+                <FilterSwitch 
+                    label='Vegan' 
+                    state={isVegan}
+                    onChange={newValue => setIsVegan(newValue)}
+                />
+                <FilterSwitch 
+                    label='Végétarien' 
+                    state={isVegetarian}
+                    onChange={newValue => setIsVegetarian(newValue)}
+                />
+            </View>
+        </ScrollView>
     );
 };
 

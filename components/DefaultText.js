@@ -11,6 +11,8 @@ const styles = StyleSheet.create({
     text: {
         fontFamily: 'poppins',
         textAlign: 'center',
+        marginHorizontal: 10,
+        fontSize: 18,
     }
 });
 
