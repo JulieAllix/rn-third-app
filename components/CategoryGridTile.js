@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { 
     TouchableOpacity, 
     View, 
@@ -10,6 +11,7 @@ import {
 } from 'react-native';
 
 const CategoryGridTile = props => {
+    let availableDeviceWidth = useSelector(state => state.screen.availableDeviceWidth);
     let TouchableCmp = TouchableOpacity;
 
     if (Platform.OS === 'android') {
@@ -22,7 +24,7 @@ const CategoryGridTile = props => {
                 onPress={props.onSelect}
             >
                 <View style={{...styles.container, ...{backgroundColor: props.color}}}>
-                    <Text style={styles.title} numberOfLines={2}>{props.title}</Text>
+                    <Text style={{...styles.title, ...{fontSize: availableDeviceWidth > 325 ? 23 : 16,}}} numberOfLines={2}>{props.title}</Text>
                 </View>
             </TouchableCmp>
         </View>
@@ -52,7 +54,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'abril',
-        fontSize: 23,
+        //fontSize: 23,
         textAlign: 'right',
         color: 'white'
     }
