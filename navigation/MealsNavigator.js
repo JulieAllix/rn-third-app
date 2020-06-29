@@ -26,21 +26,7 @@ const Tab = createBottomTabNavigator();
 const MaterialTab = createMaterialBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
-const defaultStackNavOptions = {
-    headerStyle: {
-        backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
-        height: availableDeviceWidth > 350 ? 50 : 20,
-    },
-    headerTitleStyle: {
-        fontFamily: 'poppins-b',
-        fontSize: 24,
-        fontWeight: 'bold',
-    },
-    headerBackTitleStyle: {
-        fontFamily: 'poppins'
-    },
-    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
-};
+
 
 const Meals = ({navigation}) => {
     const [availableDeviceWidth, setAvailableDeviceWidth] = useState(Dimensions.get('window').width);
@@ -56,6 +42,23 @@ const Meals = ({navigation}) => {
             Dimensions.removeEventListener('change', updateLayout);
         };
     });
+
+    const defaultStackNavOptions = {
+        headerStyle: {
+            backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : 'white',
+            height: availableDeviceWidth > 400 ? 70 : 70,
+        },
+        headerTitleStyle: {
+            fontFamily: 'poppins-b',
+            fontSize: 24,
+            fontWeight: 'bold',
+            marginVertical: 10,
+        },
+        headerBackTitleStyle: {
+            fontFamily: 'poppins'
+        },
+        headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor
+    };
 
     return (
         <Stack.Navigator

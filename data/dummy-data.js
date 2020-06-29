@@ -30,7 +30,7 @@ export const MEALS = [
       'Gingembre en boîte (1 cuillère à café) ou frais',
       'Lait de coco (1 boîte soit environ 300 g)',
       'Curry en poudre (2 à 3 cuillères à soupe rases)',
-      'Pâte de curry rouge'
+      'Pâte de curry rouge',
       '1 oignon jaune',
       '1 courgette',
       'Champignons de Paris (une petite boîte)'
