@@ -188,7 +188,7 @@ export const MEALS = [
     '60 g de parmesan'
     ],
     [
-      'Émincez l\'oignon et hachez très finement l\'ail après en avoir ôté le germe. Faites chauffer l\'huile dans y cocotte et faites y revenir l\'ail et l\'oignon.',
+      'Émincez l\'oignon et hachez très finement l\'ail après en avoir ôté le germe. Faites chauffer l\'huile dans une cocotte et faites y revenir l\'ail et l\'oignon.',
       'Coupez l\'aubergine en petits cubes et mettez-les dans la cocotte. Lorsqu\'elles sont bien dorées, ajoutez les poivrons coupés en lanières. Assaisonnez avexc le thym, le romarin, le sel et le poivre.',
       'Au bout de 20 mn, ajoutez les courgettes coupées en rondelles et les tomates pelées et épépinées. Mélangez bien et maintenir une cuisson assez vive pour que les légumes rendent leur eau.',
       'Pendant ce temps, préchauffez le four thermostat 6 (180°C) et confectionnez les miettes : mélangez du bout des doigts la farine, le parmesan et le beurre. Ajoutez les pignons.',
