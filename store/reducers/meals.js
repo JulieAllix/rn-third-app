@@ -10,8 +10,10 @@ const initialState = {
 const mealsReducer = (state = initialState, action) => {
     switch (action.type) {
         case TOGGLE_FAVORITE:
+            /*The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.*/
             const existingIndex = state.favoriteMeals.findIndex(meal => meal.id === action.mealId);
             if (existingIndex >= 0) {
+                /* Replaces the index by something empty : deletes it */
                 const updatedFavMeals = [...state.favoriteMeals];
                 updatedFavMeals.splice(existingIndex, 1);
                 return { ...state, favoriteMeals: updatedFavMeals };

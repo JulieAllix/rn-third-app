@@ -76,31 +76,30 @@ export const MEALS = [
 
   new Meal(
     'm3',
-    ['c9'],
-    'Classic Hamburger',
-    'coûteux',
+    ['c1', 'c4', 'c5', 'c8'],
+    'Bruschetta à la mozzarella',
+    'abordable',
     'simple',
-    'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
-    45,
+    'https://assets.afcdn.com/recipe/20180413/78570_w600cxt0cyt0cxb3840cyb5760.jpg',
+    15,
     [
-      '300g Cattle Hack',
-      '1 Tomato',
-      '1 Cucumber',
-      '1 Onion',
-      'Ketchup',
-      '2 Burger Buns'
+      '8 tranches de pain de campagne',
+      'Tomate',
+      '2 boules de mozzarella',
+      'Origan ou basilic frais',
+      'Huile d\'olive',
     ],
     [
-      'Form 2 patties',
-      'Fry the patties for c. 4 minutes on each side',
-      'Quickly fry the buns for c. 1 minute on each side',
-      'Bruch buns with ketchup',
-      'Serve burger with tomato, cucumber and onion'
+      'Disposer les tranches de pain de campagne sur une plaque du four.',
+      'Découper très finement tomates et mozzarella en dés.',
+      'Sur chaque tranche de pain, diposer quelques petits morceaux de tomate, puis un peu de mozzarella.',
+      'Saupoudrer chaque tartine d\'origan ou de basilic, et verser un filet d\'huile d\'olive.',
+      'Attendre l\'arrivée des invités pour passer les tartines 3 à 5 min au grill, pour que la mozzarella fonde...'
     ],
     false,
     false,
-    false,
-    true
+    true,
+    false
   ),
 
   new Meal(
@@ -189,7 +188,7 @@ export const MEALS = [
     '60 g de parmesan'
     ],
     [
-      'Émincez l\oignon et hachez très finement l\'ail après en avoir ôté le germe. Faites chauffer l\'huile dans y cocotte et faites y revenir l\'ail et l\'oignon.',
+      'Émincez l\'oignon et hachez très finement l\'ail après en avoir ôté le germe. Faites chauffer l\'huile dans y cocotte et faites y revenir l\'ail et l\'oignon.',
       'Coupez l\'aubergine en petits cubes et mettez-les dans la cocotte. Lorsqu\'elles sont bien dorées, ajoutez les poivrons coupés en lanières. Assaisonnez avexc le thym, le romarin, le sel et le poivre.',
       'Au bout de 20 mn, ajoutez les courgettes coupées en rondelles et les tomates pelées et épépinées. Mélangez bien et maintenir une cuisson assez vive pour que les légumes rendent leur eau.',
       'Pendant ce temps, préchauffez le four thermostat 6 (180°C) et confectionnez les miettes : mélangez du bout des doigts la farine, le parmesan et le beurre. Ajoutez les pignons.',
