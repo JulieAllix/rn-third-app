@@ -280,7 +280,7 @@ const AddRecipeNavigator = ({ navigation }) => {
                 name="AddRecipe" 
                 component={AddRecipeScreen}
                 options={({ route }) => ({ 
-                    title: 'Ajouter une nouvelle recette',
+                    title: 'Nouvelle recette',
                     headerLeft: () => (
                         <HeaderButtons
                             HeaderButtonComponent={HeaderButton}
