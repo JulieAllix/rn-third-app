@@ -293,18 +293,7 @@ const AddRecipeNavigator = ({ navigation }) => {
                                 }}
                             />
                         </HeaderButtons>
-                    ),
-                    headerRight: () => (
-                        <HeaderButtons
-                            HeaderButtonComponent={HeaderButton}
-                        >
-                            <Item 
-                                title="Save" 
-                                iconName="ios-save"
-                                onPress={route.params?.save}
-                            />
-                        </HeaderButtons>
-                    ),
+                    )
                 })}
             />
         </Stack.Navigator>

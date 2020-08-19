@@ -1,9 +1,10 @@
-import React, {useCallback, useReducer} from 'react';
+import React, {useState, useCallback, useReducer} from 'react';
 import { 
     View, 
     Text, 
     StyleSheet, 
-    ScrollView
+    ScrollView,
+    Alert
 } from 'react-native';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
@@ -12,58 +13,87 @@ const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
 
 const formReducer = (state, action) => {
     if (action.type === FORM_INPUT_UPDATE) {
-      const updatedValues = {
-        ...state.inputValues,
-        [action.input]: action.value
-      };
-      const updatedValidities = {
-        ...state.inputValidities,
-        [action.input]: action.isValid
-      };
-      let updatedFormIsValid = true;
-      for (const key in updatedValidities) {
-        updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
-      }
-      return {
-        formIsValid: updatedFormIsValid,
-        inputValidities: updatedValidities,
-        inputValues: updatedValues
-      };
+        const updatedValues = {
+            ...state.inputValues,
+            [action.input]: action.value
+        };
+        const updatedValidities = {
+            ...state.inputValidities,
+            [action.input]: action.isValid
+        };
+        let updatedFormIsValid = true;
+        for (const key in updatedValidities) {
+            updatedFormIsValid = updatedFormIsValid && updatedValidities[key];
+        }
+        return {
+            formIsValid: updatedFormIsValid,
+            inputValidities: updatedValidities,
+            inputValues: updatedValues
+        };
     }
     return state;
 };
 
 const AddRecipeScreen = props => {
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState();
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
-          name: '',
-          image: '',
-          time: '',
-          difficulty: '',
-          cost: '',
+            name: '',
+            image: '',
+            time: '',
+            difficulty: '',
+            cost: '',
         },
         inputValidities: {
-          name: false,
-          image: false,
-          time: false,
-          difficulty: false,
-          cost: false,
+            name: false,
+            image: false,
+            time: false,
+            difficulty: false,
+            cost: false,
         },
         formIsValid: false
-      });
+    });
 
     const inputChangeHandler = useCallback(
         (inputIdentifier, inputValue, inputValidity) => {
-          dispatchFormState({
-            type: FORM_INPUT_UPDATE,
-            value: inputValue,
-            isValid: inputValidity,
-            input: inputIdentifier
-          });
+            dispatchFormState({
+                type: FORM_INPUT_UPDATE,
+                value: inputValue,
+                isValid: inputValidity,
+                input: inputIdentifier
+            });
         },
         [dispatchFormState]
-      );
+    );
 
+    const submitHandler = useCallback(async() => {
+        if (!formState.formIsValid) {
+          Alert.alert('Erreur de saisie', 'Vérifiez les erreurs dans le formulaire svp.', [
+            { text: 'Ok' }
+          ]);
+          return;
+        }
+        setError(null);
+        setIsLoading(true);
+        try {
+            await dispatch(
+                createRecipe(//action à créer
+                    formState.inputValues.name,
+                    formState.inputValues.image,
+                    formState.inputValues.time,
+                    formState.inputValues.difficulty,
+                    formState.inputValues.cost
+                )
+            );
+            props.navigation.goBack();
+        } catch (err) {
+          setError(err.message);
+        };
+        
+        setIsLoading(false);
+        
+    });
     return (
         <ScrollView> 
             <View style={styles.screen}>
@@ -121,7 +151,7 @@ const AddRecipeScreen = props => {
                 onInputChange={inputChangeHandler}
                 required
             />
-            <Button>Valider</Button>
+            <Button onPress={submitHandler}>Valider</Button>
             </View>
         </ScrollView>
     );
