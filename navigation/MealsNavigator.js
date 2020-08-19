@@ -16,6 +16,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailScreen from '../screens/MealDetailScreen';
 import FavoritesScreen from '../screens/FavoritesScreen';
+import AddRecipeScreen from '../screens/AddRecipeScreen';
 
 import HeaderButton from '../components/HeaderButton';
 import FiltersScreen from '../screens/FiltersScreen';
@@ -268,6 +269,48 @@ const FiltersNavigator = ({ navigation }) => {
     );
 };
 
+const AddRecipeNavigator = ({ navigation }) => {
+    return (
+        <Stack.Navigator
+            initialRouteName="AddRecipe"
+            headerMode="screen"
+            screenOptions={defaultStackNavOptions}
+        >
+            <Stack.Screen 
+                name="AddRecipe" 
+                component={AddRecipeScreen}
+                options={({ route }) => ({ 
+                    title: 'Ajouter une nouvelle recette',
+                    headerLeft: () => (
+                        <HeaderButtons
+                            HeaderButtonComponent={HeaderButton}
+                        >
+                            <Item 
+                                title="Menu" 
+                                iconName="ios-menu"
+                                onPress={() => {
+                                    navigation.toggleDrawer();
+                                }}
+                            />
+                        </HeaderButtons>
+                    ),
+                    headerRight: () => (
+                        <HeaderButtons
+                            HeaderButtonComponent={HeaderButton}
+                        >
+                            <Item 
+                                title="Save" 
+                                iconName="ios-save"
+                                onPress={route.params?.save}
+                            />
+                        </HeaderButtons>
+                    ),
+                })}
+            />
+        </Stack.Navigator>
+    );
+};
+
 const MainNavigator = () => {
     let availableDeviceWidth = useSelector(state => state.screen.availableDeviceWidth);
     const dispatch = useDispatch();
@@ -306,6 +349,10 @@ const MainNavigator = () => {
                 <Drawer.Screen 
                     name="Filtres" 
                     component={FiltersNavigator} 
+                />
+                <Drawer.Screen 
+                    name="Ajouter une recette" 
+                    component={AddRecipeNavigator} 
                 />
             </Drawer.Navigator>
         </NavigationContainer>
