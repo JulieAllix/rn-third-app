@@ -2,17 +2,16 @@ import Category from '../models/category';
 import Meal from '../models/meal';
 
 export const CATEGORIES = [
-  new Category('c1', 'Rapide & facile', '#ffba08'),
-  new Category('c2', 'Léger', '#faa307'),
-  new Category('c3', 'Salades', '#f48c06'),
-  new Category('c4', 'Tapas', '#e85d04'),
-  new Category('c5', 'Estival', '#dc2f02'),
-  new Category('c6', 'Petit-Déjeuner', '#d00000'),
-  new Category('c7', 'Sucré', '#9d0208'),
-  new Category('c8', 'Italien', '#6a040f'),
-  new Category('c9', 'Hamburgers', '#370617'),
-  new Category('c10', 'Sucré-salé', '#03071e'),
-  new Category('c11', 'Français', '#370617'),
+  new Category('c1', 'Rapide & facile', { uri : 'https://larecette.net/wp-content/uploads/2019/03/egg-muffin-4.jpg'}),
+  new Category('c2', 'Léger', { uri : 'https://larecette.net/wp-content/uploads/2019/06/image-14-2.jpg'}),
+  new Category('c3', 'Salades', { uri : 'https://qccdn.ar-cdn.com/recipes/port250/f19952ad-1d1a-4366-ad5c-e44cd579a621.jpg'}),
+  new Category('c4', 'Tapas', { uri : 'https://larecette.net/wp-content/uploads/2019/08/iStock-1051670100-1152x768.jpg'}),
+  new Category('c5', 'Estival', { uri : 'https://larecette.net/wp-content/uploads/2019/07/image-84.jpg'}),
+  new Category('c6', 'Petit-Déjeuner', { uri : 'https://assets.afcdn.com/recipe/20170112/30531_w600.jpg'}),
+  new Category('c7', 'Sucré', { uri : 'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg'}),
+  new Category('c8', 'Italien', { uri : 'https://assets.afcdn.com/recipe/20180413/78570_w600cxt0cyt0cxb3840cyb5760.jpg'}),
+  new Category('c10', 'Sucré-salé', { uri : 'https://assets.afcdn.com/recipe/20161128/60272_w600.jpg'}),
+  new Category('c11', 'Français', { uri : 'https://assets.afcdn.com/recipe/20160621/31268_w600.jpg'}),
 ];
 
 export const MEALS = [
@@ -202,7 +201,7 @@ export const MEALS = [
 
   new Meal(
     'm7',
-    ['c6'],
+    ['c6', 'c7'],
     'Pancakes',
     'abordable',
     'simple',

@@ -12,7 +12,7 @@ const CategoriesScreen = ({ navigation }) => {
         return (
             <CategoryGridTile 
                 title={itemData.item.title}
-                color={itemData.item.color}
+                image={itemData.item.image}
                 onSelect={
                     () => {
                         navigation.navigate( 

@@ -7,7 +7,8 @@ import {
     StyleSheet ,
     Platform,
     TouchableNativeFeedback,
-    Dimensions
+    Dimensions,
+    ImageBackground
 } from 'react-native';
 
 const CategoryGridTile = props => {
@@ -23,9 +24,12 @@ const CategoryGridTile = props => {
                 style={{flex: 1}}  
                 onPress={props.onSelect}
             >
-                <View style={{...styles.container, ...{backgroundColor: props.color}}}>
+                <ImageBackground
+                style={styles.container} 
+                source={props.image}
+                >
                     <Text style={{...styles.title, ...{fontSize: availableDeviceWidth > 325 ? 23 : 16,}}} numberOfLines={2}>{props.title}</Text>
-                </View>
+                </ImageBackground>
             </TouchableCmp>
         </View>
     )
