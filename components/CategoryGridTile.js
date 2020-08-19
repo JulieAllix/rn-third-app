@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         borderRadius: 10,
+        overflow: 'hidden',
         padding: 15,
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
@@ -58,9 +59,11 @@ const styles = StyleSheet.create({
     },
     title: {
         fontFamily: 'abril',
-        //fontSize: 23,
-        textAlign: 'right',
-        color: 'white'
+        textAlign: 'center',
+        color: 'white',
+        textShadowColor: 'black',
+        textShadowOffset: { width: 0, height: 1 },
+        textShadowRadius: 1,
     }
 });
 
