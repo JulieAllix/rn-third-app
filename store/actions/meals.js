@@ -17,9 +17,8 @@ export const setFilters = (filterSettings) => {
 };
 
 export const createRecipe = (title, imageUrl, duration, complexity, affordability) => {
-    console.log('action');
+    
     return async dispatch => {
-        // any async code you want !
         const response = await fetch('https://recipe-manager-afcb2.firebaseio.com/recipes.json', {
             method: 'POST',
             headers: {
@@ -35,7 +34,7 @@ export const createRecipe = (title, imageUrl, duration, complexity, affordabilit
         });
   
         const resData = await response.json();
-  
+        console.log(resData);
         dispatch({
             type: CREATE_RECIPE,
             recipeData: {

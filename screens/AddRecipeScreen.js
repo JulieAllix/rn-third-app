@@ -1,4 +1,9 @@
-import React, {useState, useCallback, useReducer} from 'react';
+import React, {
+    useState, 
+    useCallback, 
+    useReducer
+} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { 
     View, 
     Text, 
@@ -41,6 +46,8 @@ const AddRecipeScreen = props => {
     const editedRecipe = '';
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
+    const dispatch = useDispatch();
+
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
             title: editedRecipe ? editedRecipe.title :'',
