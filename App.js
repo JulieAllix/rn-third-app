@@ -6,6 +6,9 @@ import { enableScreens } from 'react-native-screens';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
+import { applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+
 import MealsNavigator from './navigation/MealsNavigator';
 import mealsReducer from './store/reducers/meals';
 import screenReducer from './store/reducers/screen';
@@ -17,7 +20,7 @@ const rootReducer = combineReducers({
   screen: screenReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
 
 const fetchFonts = () => {
   return Font.loadAsync({

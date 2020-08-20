@@ -1,5 +1,9 @@
 import { MEALS } from '../../data/dummy-data';
-import { TOGGLE_FAVORITE, SET_FILTERS } from '../actions/meals';
+import { 
+    TOGGLE_FAVORITE, 
+    SET_FILTERS,
+    CREATE_RECIPE
+} from '../actions/meals';
 
 const initialState = {
     meals: MEALS,
@@ -39,6 +43,26 @@ const mealsReducer = (state = initialState, action) => {
                 return true;
             });
             return { ...state, filteredMeals: updatedFilteredMeals };
+        case CREATE_RECIPE:
+            const newRecipe = new Meal(
+                action.recipeData.id,
+                'c1',
+                action.recipeData.title,
+                action.recipeData.affordability,
+                action.recipeData.complexity,
+                action.recipeData.imageUrl,
+                action.recipeData.duration,
+                ['ingredients'],
+                ['steps'],
+                true,
+                true,
+                true,
+                true
+              );
+              return {
+                ...state,
+                meals: state.meals.concat(newRecipe),
+              };
         default: 
             return state;
     }

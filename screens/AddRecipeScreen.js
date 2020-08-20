@@ -6,6 +6,9 @@ import {
     ScrollView,
     Alert
 } from 'react-native';
+
+import { createRecipe } from '../store/actions/meals';
+
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
@@ -35,24 +38,25 @@ const formReducer = (state, action) => {
 };
 
 const AddRecipeScreen = props => {
+    const editedRecipe = '';
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState();
     const [formState, dispatchFormState] = useReducer(formReducer, {
         inputValues: {
-            name: '',
-            image: '',
-            time: '',
-            difficulty: '',
-            cost: '',
+            title: editedRecipe ? editedRecipe.title :'',
+            imageUrl: editedRecipe ? editedRecipe.imageUrl :'',
+            duration: editedRecipe ? editedRecipe.duration :'',
+            complexity: editedRecipe ? editedRecipe.complexity :'',
+            affordability: editedRecipe ? editedRecipe.affordability :'',
         },
         inputValidities: {
-            name: false,
-            image: false,
-            time: false,
-            difficulty: false,
-            cost: false,
+            title: editedRecipe ? true : false,
+            imageUrl: editedRecipe ? true : false,
+            duration: editedRecipe ? true : false,
+            complexity: editedRecipe ? true : false,
+            affordability: editedRecipe ? true : false,
         },
-        formIsValid: false
+        formIsValid: editedRecipe ? true : false
     });
 
     const inputChangeHandler = useCallback(
@@ -77,28 +81,43 @@ const AddRecipeScreen = props => {
         setError(null);
         setIsLoading(true);
         try {
-            await dispatch(
-                createRecipe(//action à créer
-                    formState.inputValues.name,
-                    formState.inputValues.image,
-                    formState.inputValues.time,
-                    formState.inputValues.difficulty,
-                    formState.inputValues.cost
-                )
-            );
+            if (editedRecipe) {
+                await dispatch(
+                    createRecipe(
+                        prodId,
+                        formState.inputValues.title,
+                        formState.inputValues.description,
+                        formState.inputValues.imageUrl
+                    )
+                );
+            } else {
+                console.log('a cliqué');
+                await dispatch(
+                    createRecipe(
+                        formState.inputValues.title,
+                        formState.inputValues.imageUrl,
+                        formState.inputValues.duration,
+                        formState.inputValues.complexity,
+                        formState.inputValues.affordability
+                    )
+                );
+                console.log('cc');
+            }
             props.navigation.goBack();
         } catch (err) {
+            console.log('erreur');
           setError(err.message);
         };
         
         setIsLoading(false);
         
     });
+
     return (
         <ScrollView> 
             <View style={styles.screen}>
             <Input
-                id="name"
+                id="title"
                 label="Nom de la recette"
                 errorText="Entrez un nom valide svp !"
                 keyboardType="default"
@@ -109,7 +128,7 @@ const AddRecipeScreen = props => {
                 required
             />
             <Input
-                id="image"
+                id="imageUrl"
                 label="Photo"
                 errorText="Entrez un url valide svp !"
                 keyboardType="default"
@@ -120,7 +139,7 @@ const AddRecipeScreen = props => {
                 required
             />
             <Input
-                id="time"
+                id="duration"
                 label="Durée (en minutes)"
                 errorText="Entrez un temps valide svp !"
                 keyboardType="decimal-pad"
@@ -130,7 +149,7 @@ const AddRecipeScreen = props => {
                 min={1}
             />
             <Input
-                id="difficulty"
+                id="complexity"
                 label="Niveau de difficulté"
                 errorText="Entrez un niveau de difficulté valide svp !"
                 keyboardType="default"
@@ -141,7 +160,7 @@ const AddRecipeScreen = props => {
                 required
             />
             <Input
-                id="cost"
+                id="affordability"
                 label="Coût (abordable, coûteux, ou cher)"
                 errorText="Entrez un coût valide svp !"
                 keyboardType="default"

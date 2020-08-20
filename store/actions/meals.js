@@ -1,5 +1,6 @@
 export const TOGGLE_FAVORITE = 'TOGGLE_FAVORITE';
 export const SET_FILTERS = 'SET_FILTERS';
+export const CREATE_RECIPE = 'CREATE_RECIPE';
 
 export const toggleFavorite = (id) => {
     return { 
@@ -13,4 +14,39 @@ export const setFilters = (filterSettings) => {
         type: SET_FILTERS, 
         filters: filterSettings 
     };
+};
+
+export const createRecipe = (title, imageUrl, duration, complexity, affordability) => {
+    console.log('action');
+    return async dispatch => {
+        // any async code you want !
+        const response = await fetch('https://recipe-manager-afcb2.firebaseio.com/recipes.json', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title, 
+                imageUrl, 
+                duration, 
+                complexity,
+                affordability
+            })
+        });
+  
+        const resData = await response.json();
+  
+        dispatch({
+            type: CREATE_RECIPE,
+            recipeData: {
+                id: resData.name,
+                title, 
+                imageUrl, 
+                duration, 
+                complexity,
+                affordability
+            }
+        });
+    };
+
 };
