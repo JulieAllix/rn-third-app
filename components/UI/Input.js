@@ -83,14 +83,15 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   label: {
-    fontFamily: 'poppins',
-    marginVertical: 8
+    fontFamily: 'poppins-b',
+    color: "#656565",
+    marginVertical: 8,
   },
   input: {
     paddingHorizontal: 2,
     paddingVertical: 5,
     borderBottomColor: '#ccc',
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   errorContainer: {
     marginVertical: 5

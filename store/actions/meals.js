@@ -16,7 +16,7 @@ export const setFilters = (filterSettings) => {
     };
 };
 
-export const createRecipe = (title, imageUrl, duration, complexity, affordability) => {
+export const createRecipe = (title, imageUrl, duration, complexity, affordability, ingredients) => {
     
     return async dispatch => {
         const response = await fetch('https://recipe-manager-afcb2.firebaseio.com/recipes.json', {
@@ -29,7 +29,8 @@ export const createRecipe = (title, imageUrl, duration, complexity, affordabilit
                 imageUrl, 
                 duration, 
                 complexity,
-                affordability
+                affordability,
+                ingredients
             })
         });
   
@@ -43,7 +44,8 @@ export const createRecipe = (title, imageUrl, duration, complexity, affordabilit
                 imageUrl, 
                 duration, 
                 complexity,
-                affordability
+                affordability,
+                ingredients
             }
         });
     };

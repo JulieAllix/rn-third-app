@@ -10,12 +10,14 @@ import ReduxThunk from 'redux-thunk';
 import MealsNavigator from './navigation/MealsNavigator';
 import mealsReducer from './store/reducers/meals';
 import screenReducer from './store/reducers/screen';
+import recipeReducer from './store/reducers/recipe';
 
 enableScreens();
 
 const rootReducer = combineReducers({
   meals: mealsReducer,
-  screen: screenReducer
+  screen: screenReducer,
+  recipe: recipeReducer,
 });
 
 const store = createStore(rootReducer, applyMiddleware(ReduxThunk));

@@ -15,6 +15,7 @@ import {
 import { createRecipe } from '../store/actions/meals';
 
 import Input from '../components/UI/Input';
+import MultipleInput from '../components/UI/MultipleInput';
 import Button from '../components/UI/Button';
 
 const FORM_INPUT_UPDATE = 'FORM_INPUT_UPDATE';
@@ -55,6 +56,7 @@ const AddRecipeScreen = props => {
             duration: editedRecipe ? editedRecipe.duration :'',
             complexity: editedRecipe ? editedRecipe.complexity :'',
             affordability: editedRecipe ? editedRecipe.affordability :'',
+            ingredients: editedRecipe ? editedRecipe.ingredients :'',
         },
         inputValidities: {
             title: editedRecipe ? true : false,
@@ -62,6 +64,7 @@ const AddRecipeScreen = props => {
             duration: editedRecipe ? true : false,
             complexity: editedRecipe ? true : false,
             affordability: editedRecipe ? true : false,
+            ingredients: editedRecipe ? true : false,
         },
         formIsValid: editedRecipe ? true : false
     });
@@ -105,7 +108,8 @@ const AddRecipeScreen = props => {
                         formState.inputValues.imageUrl,
                         formState.inputValues.duration,
                         formState.inputValues.complexity,
-                        formState.inputValues.affordability
+                        formState.inputValues.affordability,
+                        formState.inputValues.ingredients,
                     )
                 );
                 console.log('cc');
@@ -176,6 +180,15 @@ const AddRecipeScreen = props => {
                 returnKeyType="next"
                 onInputChange={inputChangeHandler}
                 required
+            />
+            <MultipleInput
+                id="ingredients"
+                label="Ingrédients"
+                keyboardType="default"
+                autoCapitalize="sentences"
+                autoCorrect
+                returnKeyType="next"
+                onInputChange={inputChangeHandler}
             />
             <Button onPress={submitHandler}>Valider</Button>
             </View>

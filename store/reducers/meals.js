@@ -52,7 +52,7 @@ const mealsReducer = (state = initialState, action) => {
                 action.recipeData.complexity,
                 action.recipeData.imageUrl,
                 action.recipeData.duration,
-                ['ingredients'],
+                action.recipeData.ingredients,
                 ['steps'],
                 true,
                 true,
