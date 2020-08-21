@@ -46,9 +46,10 @@ const SingleTextInput = props => {
   return (
       <TextInput
           style={styles.input}
-          value={inputState.value}
-          onChangeText={textChangeHandler}
+          value={props.value}
+          onChangeText={props.onChangeText}
           onBlur={lostFocusHandler}
+          id={props.id}
       />
   );
 };

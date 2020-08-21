@@ -42,7 +42,6 @@ const MealDetailScreen = ({ route, navigation }) => {
 
     useEffect(() => {
         navigation.setParams({isFav: currentMealIsFavorite});
-        console.log(currentMealIsFavorite);
     }, [currentMealIsFavorite]);
 
     return (

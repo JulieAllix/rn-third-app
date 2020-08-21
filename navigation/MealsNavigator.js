@@ -312,13 +312,9 @@ const MainNavigator = () => {
     });
 
     const updateLayout = () => {
-        console.log('Before :');
-        console.log(availableDeviceWidth);
         const newWidth = Dimensions.get('window').width;
         dispatch(setAvailableDeviceWidth(newWidth));
         availableDeviceWidth = newWidth;
-        console.log('After :');
-        console.log(availableDeviceWidth);
     };
 
     return (

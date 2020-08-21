@@ -101,7 +101,6 @@ const AddRecipeScreen = props => {
                     )
                 );
             } else {
-                console.log('a cliqué');
                 await dispatch(
                     createRecipe(
                         formState.inputValues.title,
@@ -112,11 +111,9 @@ const AddRecipeScreen = props => {
                         formState.inputValues.ingredients,
                     )
                 );
-                console.log('cc');
             }
             props.navigation.goBack();
         } catch (err) {
-            console.log('erreur');
           setError(err.message);
         };
         

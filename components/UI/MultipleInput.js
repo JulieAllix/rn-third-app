@@ -25,9 +25,10 @@ const inputReducer = (state, action) => {
 };
 
 const MultipleInput = props => {
+    const [activeInputId, setActiveInputId] = useState('');
     const [inputsNumber, setInputsNumber] = useState(1);
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: props.initialValue ? props.initialValue : '',
+        value: props.initialValue ? props.initialValue : ['test'],
         touched: false
     });
 
@@ -39,10 +40,19 @@ const MultipleInput = props => {
         }
     }, [inputState, onInputChange, id]);
 
-    const textChangeHandler = text => {
-        dispatch({ type: INPUT_CHANGE, value: text });
+    const textChangeHandler = (text, id) => {
+        
+        //const updatedInput = [...inputState.value]
+        dispatch({ 
+            type: INPUT_CHANGE, 
+            value: ''
+        });
     };
-
+/*
+    const updatedFavMeals = [...state.favoriteMeals];
+                updatedFavMeals.splice(existingIndex, 1);
+                return { ...state, favoriteMeals: updatedFavMeals };
+*/
     const lostFocusHandler = () => {
         dispatch({ type: INPUT_BLUR });
     };
@@ -51,24 +61,36 @@ const MultipleInput = props => {
         setInputsNumber(inputsNumber + 1);
     };
 
-    const inputs = [];
-
+    let inputsArray = [];
     for(let i = 0; i < inputsNumber; i++){
-        inputs.push(
-            <SingleTextInput {...props} key={i} />
-        )
+    //inputState.value.map((element) => {
+        let counter = 0;
+        inputsArray.push(
+            <SingleTextInput 
+                {...props} 
+                key={i}
+                id={i}
+                onChangeText={(text) => textChangeHandler(text, i)}
+                value={inputState.value[i]}
+            />
+        );
+        counter ++;
+    //}); 
     };
-
+    
+    console.log(inputState.value);
+    //console.log(inputState.value[1]);
+    
     return (
         <View style={styles.formControl}>
         <Text style={styles.label}>{props.label}</Text>
-        {inputs}
+        {inputsArray}
         <Button onPress={addInput}>Add another</Button>
         </View>
     );
-    };
+};
 
-    const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     formControl: {
         width: '100%',
         marginBottom: 20

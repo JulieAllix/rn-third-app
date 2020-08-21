@@ -35,7 +35,6 @@ export const createRecipe = (title, imageUrl, duration, complexity, affordabilit
         });
   
         const resData = await response.json();
-        console.log(resData);
         dispatch({
             type: CREATE_RECIPE,
             recipeData: {
