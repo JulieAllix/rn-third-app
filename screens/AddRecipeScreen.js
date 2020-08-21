@@ -56,7 +56,7 @@ const AddRecipeScreen = props => {
             duration: editedRecipe ? editedRecipe.duration :'',
             complexity: editedRecipe ? editedRecipe.complexity :'',
             affordability: editedRecipe ? editedRecipe.affordability :'',
-            ingredients: editedRecipe ? editedRecipe.ingredients :'',
+            ingredients: editedRecipe ? editedRecipe.ingredients :[],
         },
         inputValidities: {
             title: editedRecipe ? true : false,
@@ -82,6 +82,8 @@ const AddRecipeScreen = props => {
     );
 
     const submitHandler = useCallback(async() => {
+        console.log(formState.inputValues);
+        console.log(formState.formIsValid);
         if (!formState.formIsValid) {
           Alert.alert('Erreur de saisie', 'Vérifiez les erreurs dans le formulaire svp.', [
             { text: 'Ok' }

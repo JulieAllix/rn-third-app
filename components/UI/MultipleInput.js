@@ -13,6 +13,7 @@ const inputReducer = (state, action) => {
       return {
         ...state,
         value: action.value,
+        isValid: action.isValid
       };
     case INPUT_BLUR:
       return {
@@ -25,10 +26,10 @@ const inputReducer = (state, action) => {
 };
 
 const MultipleInput = props => {
-    const [activeInputId, setActiveInputId] = useState('');
     const [inputsNumber, setInputsNumber] = useState(1);
     const [inputState, dispatch] = useReducer(inputReducer, {
-        value: props.initialValue ? props.initialValue : ['test'],
+        value: props.initialValue ? props.initialValue : [''],
+        isValid: props.initiallyValid,
         touched: false
     });
 
@@ -36,23 +37,23 @@ const MultipleInput = props => {
 
     useEffect(() => {
         if (inputState.touched) {
-        onInputChange(id, inputState.value);
+        onInputChange(id, inputState.value, inputState.isValid);
         }
     }, [inputState, onInputChange, id]);
 
     const textChangeHandler = (text, id) => {
-        
-        //const updatedInput = [...inputState.value]
+        let isValid = true;
+        const updatedMultipleInputValue = [...inputState.value];
+        updatedMultipleInputValue[id] = text;
+        //console.log(inputState.value);
         dispatch({ 
             type: INPUT_CHANGE, 
-            value: ''
+            value: updatedMultipleInputValue,
+            isValid: isValid
         });
+        
     };
-/*
-    const updatedFavMeals = [...state.favoriteMeals];
-                updatedFavMeals.splice(existingIndex, 1);
-                return { ...state, favoriteMeals: updatedFavMeals };
-*/
+
     const lostFocusHandler = () => {
         dispatch({ type: INPUT_BLUR });
     };
@@ -63,8 +64,6 @@ const MultipleInput = props => {
 
     let inputsArray = [];
     for(let i = 0; i < inputsNumber; i++){
-    //inputState.value.map((element) => {
-        let counter = 0;
         inputsArray.push(
             <SingleTextInput 
                 {...props} 
@@ -74,12 +73,7 @@ const MultipleInput = props => {
                 value={inputState.value[i]}
             />
         );
-        counter ++;
-    //}); 
     };
-    
-    console.log(inputState.value);
-    //console.log(inputState.value[1]);
     
     return (
         <View style={styles.formControl}>
